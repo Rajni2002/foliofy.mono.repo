@@ -11,9 +11,10 @@ Suggest me some good Name 👉
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+```
 `foliofy.mono.repo/`
 ├── apps/
-│ ├── web/ -> Build & Published with `npx create-foliofy@latest [name]` ui
+│ ├── next-app/ -> Build & Published with `npx create-foliofy@latest [name]` ui
 │ │ ├── public/ # Public assets
 │ │ ├── cms/ ## Local-cms another most probably the next-app
 │ │ ├── database/ # Local-Database
@@ -37,3 +38,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ├── .turboconfig.json # TurboRepo configuration
 ├── package.json # Monorepo-wide dependencies
 └── README.md # Monorepo-wide documentation
+```
