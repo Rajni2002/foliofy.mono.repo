@@ -1,5 +1,8 @@
 {
   "exclude": ["packages/**/tests/**", "packages/**/dist/**"],
+  "compilerOptions": {
+    "isolatedModules": true
+  },
   "references": [
     {
       "path": "./packages/utils"
