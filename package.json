@@ -9,7 +9,9 @@
   ],
   "scripts": {
     "postinstall": "preconstruct dev",
-    "build": "preconstruct build"
+    "build": "preconstruct build",
+    "docs": "node ./scripts/echo-warning.js docs && npm start --prefix apps/docs",
+    "app": "node ./scripts/echo-warning.js next-app"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
