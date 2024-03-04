@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@foliofy/utils": "1.0.0",
+    "@foliofy/ui": "1.0.0",
     "@preconstruct/next": "^4.0.0",
     "@types/node": "20.6.5",
     "@types/react": "18.2.22",
