@@ -7,5 +7,8 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint /*.ts"
+  },
+  "dependencies": {
+    "@foliofy/utils": "1.0.0"
   }
 }
