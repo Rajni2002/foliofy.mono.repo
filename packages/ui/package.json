@@ -1,0 +1,11 @@
+{
+  "name": "@foliofy/ui",
+  "version": "1.0.0",
+  "description": "UI Component that powers for foliofy",
+  "main": "dist/index",
+  "types": "dist/index",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint /*.ts"
+  }
+}

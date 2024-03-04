@@ -7,7 +7,28 @@
     "apps/*",
     "docs/*"
   ],
+  "scripts": {
+    "postinstall": "preconstruct dev",
+    "build": "preconstruct build"
+  },
   "devDependencies": {
     "typescript": "^5.3.3"
+  },
+  "description": "Monorepo for Foliofy",
+  "author": "Rajni2002 <rajnikantdash12@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/plugin-transform-runtime": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-react": "^7.23.3",
+    "@preconstruct/cli": "^2.8.3"
+  },
+  "preconstruct": {
+    "packages": [
+      "packages/*",
+      "apps/*",
+      "docs/*"
+    ]
   }
 }
