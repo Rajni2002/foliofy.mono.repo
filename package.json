@@ -1,0 +1,13 @@
+{
+  "name": "@foliofy/root",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "docs/*"
+  ],
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

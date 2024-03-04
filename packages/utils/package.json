@@ -1,0 +1,19 @@
+{
+  "name": "@foliofy/utils",
+  "version": "1.0.0",
+  "description": "Independent util Methods for foliofy",
+  "main": "dist/index",
+  "types": "dist/index",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint /*.ts"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.1"
+  }
+}
