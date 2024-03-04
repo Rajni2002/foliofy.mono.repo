@@ -4,11 +4,18 @@
   "description": "UI Component that powers for foliofy",
   "main": "dist/index",
   "types": "dist/index",
+  "license": "MIT",
   "scripts": {
     "build": "tsc",
     "lint": "eslint /*.ts"
   },
   "dependencies": {
-    "@foliofy/utils": "1.0.0"
+    "@foliofy/utils": "1.0.0",
+    "@radix-ui/react-slot": "^1.0.2",
+    "lucide-react": "^0.344.0",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "class-variance-authority": "^0.7.0"
   }
 }
