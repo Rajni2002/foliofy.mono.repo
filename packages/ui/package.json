@@ -2,11 +2,11 @@
   "name": "@foliofy/ui",
   "version": "1.0.0",
   "description": "UI Component that powers for foliofy",
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "lint": "eslint /*.ts"
   },
   "dependencies": {
@@ -16,6 +16,11 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "class-variance-authority": "^0.7.0"
+    "@swc/core": "^1.4.2",
+    "autoprefixer": "^10.4.18",
+    "class-variance-authority": "^0.7.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "tsup": "^8.0.2"
   }
 }

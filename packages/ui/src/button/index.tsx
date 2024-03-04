@@ -60,3 +60,5 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button"
 
 export { Button, buttonVariants }
+export { SignatureButton, signatureButtonVariants } from "./signature";
+export { default as JoinButton } from "./join-button"

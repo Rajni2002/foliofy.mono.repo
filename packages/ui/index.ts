@@ -1,9 +1,14 @@
+import "./src/index.css";
+
 // Inputs
-export { Input, Textarea } from './input';
+export { Input, Textarea } from './src/input';
 
 // Text
-export { GradientHeading, HeadingSecondary } from './text';
+export { GradientHeading, HeadingSecondary } from './src/text';
 
 // Button
-export { SignatureButton, signatureButtonVariants } from './button/signature';
-export { Button, buttonVariants } from './button';
+export {
+    Button, buttonVariants,
+    SignatureButton, signatureButtonVariants,
+    JoinButton
+} from './src/button';
