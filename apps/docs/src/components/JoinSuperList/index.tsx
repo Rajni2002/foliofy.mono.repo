@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import CancelIcon from "@site/static/icons/cancel.svg"
-import { GradientHeading, HeadingSecondary, Input, Textarea, JoinButton } from '@foliofy/ui';
+import {
+    GradientHeading,
+    HeadingSecondary,
+    Input, Textarea,
+    JoinButton
+} from '@foliofy/ui';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 type JoinSuperListProps = {
@@ -14,7 +19,7 @@ type JoinListFormType = {
     feedback?: string
 }
 
-const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.Element => {
+const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.Element | Boolean => {
     const { siteConfig } = useDocusaurusContext();
 
     const [joinListFormData, setJoinListFormData] = useState<JoinListFormType>({
