@@ -4,6 +4,7 @@
   "description": "UI Components that powers foliofy",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
     "build": "tsup",
@@ -22,11 +23,5 @@
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "tsup": "^8.0.2"
-  },
-  "exports": {
-    ".": "./src/index.ts",
-    "./text": "./src//text/index.tsx",
-    "./input": "./src//input/index.tsx",
-    "./button": "./src//button/index.tsx"
   }
 }

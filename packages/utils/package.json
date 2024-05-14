@@ -3,21 +3,20 @@
   "version": "1.0.0",
   "license": "MIT",
   "description": "Independent util Methods for foliofy",
-  "main": "dist/foliofy-utils.cjs.js",
-  "module": "dist/foliofy-utils.esm.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "lint": "eslint /*.ts"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
+    "tsup": "^8.0.2",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "clsx": "^2.1.0",
     "tailwind-merge": "^2.2.1"
-  },
-  "exports": {
-    ".": "./src/index.ts"
   }
 }

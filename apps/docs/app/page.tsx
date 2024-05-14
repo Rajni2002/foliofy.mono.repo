@@ -1,3 +1,4 @@
+import { Button } from "@foliofy/ui/button";
 import Image from "next/image";
 
 export default function Home() {

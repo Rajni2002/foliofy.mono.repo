@@ -3,9 +3,9 @@
   "compilerOptions": {
     "isolatedModules": true
   },
-  "references": [
-    {
-      "path": "./packages/utils"
-    }
-  ]
+  // "references": [
+  //   {
+  //     "path": "./packages/utils"
+  //   }
+  // ]
 }

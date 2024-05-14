@@ -12,6 +12,7 @@ Suggest me some good Name 👉
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ```
+- 
 `foliofy.mono.repo/`
 ├── apps/
 │ ├── next-app/ -> Build & Published with `npx create-foliofy@latest [name]` ui
