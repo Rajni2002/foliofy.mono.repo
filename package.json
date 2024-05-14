@@ -1,40 +1,33 @@
 {
-  "name": "@foliofy/root",
+  "name": "foliofy.mono.repo",
   "version": "1.0.0",
   "private": true,
+  "description": "Monorepo for Foliofy",
+  "author": "Rajni2002 <rajnikantdash12@gmail.com>",
+  "license": "MIT",
   "workspaces": [
     "packages/*",
-    "apps/*",
-    "docs/*"
+    "apps/*"
   ],
+  "dependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/plugin-transform-runtime": "^7.24.0",
+    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-react": "^7.23.3",
+    "@preconstruct/cli": "^2.8.4",
+    "turbo": "^1.13.3"
+  },
+  "preconstruct": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
-    "postinstall": "preconstruct dev",
-    "build": "preconstruct build",
-    "docs": "yarn --cwd apps/docs start",
-    "app": "yarn --cwd apps/next-app "
+    "docs": "yarn --cwd apps/docs dev",
+    "app": "yarn --cwd apps/web dev"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
     "typescript": "^5.3.3"
-  },
-  "description": "Monorepo for Foliofy",
-  "author": "Rajni2002 <rajnikantdash12@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "@babel/core": "^7.24.0",
-    "@babel/plugin-transform-runtime": "^7.24.0",
-    "@babel/preset-env": "^7.24.0",
-    "@babel/preset-react": "^7.23.3",
-    "@preconstruct/cli": "^2.8.3"
-  },
-  "preconstruct": {
-    "packages": [
-      "packages/*",
-      "apps/*",
-      "docs/*"
-    ],
-    "entrypoints": [
-      "index.js"
-    ]
   }
 }

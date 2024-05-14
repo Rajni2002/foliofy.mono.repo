@@ -2,7 +2,7 @@ import * as React from "react"
 import { mergeCN } from "@foliofy/utils"
 import { cva, type VariantProps } from "class-variance-authority"
 
-const signatureButtonVariants = cva(
+export const signatureButtonVariants = cva(
     "cursor-pointer font-bold border-[1px] py-1 px-4 rounded-2xl border-gray-700 w-fit transition duration-500",
     {
         variants: {
@@ -17,11 +17,10 @@ const signatureButtonVariants = cva(
     },
 )
 
-
 interface SignatureButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof signatureButtonVariants> { }
 
-const SignatureButton = React.forwardRef<HTMLButtonElement, SignatureButtonProps>(
+export const SignatureButton = React.forwardRef<HTMLButtonElement, SignatureButtonProps>(
     ({ mode = "dark", children = "Be the first one", className = "", ...props }, ref) => {
         return (
             <button
@@ -40,6 +39,3 @@ const SignatureButton = React.forwardRef<HTMLButtonElement, SignatureButtonProps
     }
 )
 SignatureButton.displayName = "SignatureButton"
-
-
-export { SignatureButton, signatureButtonVariants };
