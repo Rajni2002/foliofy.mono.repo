@@ -18,5 +18,11 @@
   "dependencies": {
     "clsx": "^2.1.0",
     "tailwind-merge": "^2.2.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   }
 }

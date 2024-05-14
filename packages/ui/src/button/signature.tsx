@@ -1,6 +1,7 @@
 import * as React from "react"
 import { mergeCN } from "@foliofy/utils"
 import { cva, type VariantProps } from "class-variance-authority"
+import { ButtonProps } from "./types"
 
 export const signatureButtonVariants = cva(
     "cursor-pointer font-bold border-[1px] py-1 px-4 rounded-2xl border-gray-700 w-fit transition duration-500",
@@ -17,7 +18,7 @@ export const signatureButtonVariants = cva(
     },
 )
 
-interface SignatureButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+interface SignatureButtonProps extends ButtonProps,
     VariantProps<typeof signatureButtonVariants> { }
 
 export const SignatureButton = React.forwardRef<HTMLButtonElement, SignatureButtonProps>(
