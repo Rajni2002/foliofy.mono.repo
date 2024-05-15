@@ -3,3 +3,7 @@ node_modules/
 dist
 .vscode
 .excalidraw
+.turbo
+build/**
+dist/**
+.next/**

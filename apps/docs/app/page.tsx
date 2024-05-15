@@ -1,5 +1,6 @@
 import { Header } from "@/components/home/header";
 import Navbar from "@/components/navbar";
+import { Suspense } from "react";
 
 export default function Home() {
     return (
@@ -11,7 +12,9 @@ export default function Home() {
                     <div className="layer" />
                 </div>
                 <Navbar />
-                <Header />
+                <Suspense>
+                    <Header />
+                </Suspense>
             </div>
         </>
     );

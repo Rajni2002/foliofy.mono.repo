@@ -12,7 +12,14 @@ Suggest me some good Name 👉
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ```
-- 
+
+- Add Drawer to the form
+- add pipeline, turbo.json
+- then Make it Deployed to the Pipeline
+- Understand the workflow and build ??
+- Multi export paths
+- Local developement ??
+
 `foliofy.mono.repo/`
 ├── apps/
 │ ├── next-app/ -> Build & Published with `npx create-foliofy@latest [name]` ui
