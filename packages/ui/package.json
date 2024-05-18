@@ -8,13 +8,19 @@
   "license": "MIT",
   "scripts": {
     "build": "tsup",
-    "lint": "eslint /*.ts"
+    "lint": "eslint /*.ts",
+    "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
   "dependencies": {
     "@foliofy/utils": "1.0.0",
+    "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
-    "lucide-react": "^0.344.0",
-    "react": "^18.2.0"
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.378.0",
+    "react": "^18.2.0",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@swc/core": "^1.4.2",

@@ -1,14 +1,16 @@
 import "./index.css";
 
 // Inputs
-export { Input, Textarea } from './input';
+export * from './input';
 
 // Text
-export { GradientHeading, HeadingSecondary } from './text';
+export * from './text';
 
 // Button
-export {
-    Button, buttonVariants,
-    SignatureButton, signatureButtonVariants,
-    JoinButton
-} from './button';
+export * from './button';
+
+// Dialog
+export * from "./dialog"
+
+/** lucide icons */
+export * from "lucide-react"
