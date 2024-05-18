@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import JoinSuperList from "./join-super-list";
-import { GradientHeading, HeadingSecondary, SignatureButton } from "@foliofy/ui";
+import { GradientText, SignatureButton } from "@foliofy/ui";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 export function Header() {
@@ -57,17 +57,17 @@ export function Header() {
             <JoinSuperList isOpen={joinListModal} visiblityHandler={() =>
                 router.push(pathname)
             } />
-            <HeadingSecondary>Build & Deploy your</HeadingSecondary>
-            <GradientHeading>Super-portfolio.</GradientHeading>
-            <HeadingSecondary>
+            <h1 className="font-bold text-4xl leading-6">Build & Deploy your</h1>
+            <GradientText className="font-black text-xl md:text-8xl">Super-portfolio.</GradientText>
+            <h3 className="font-bold text-3xl mt-3">
                 in just
                 <span className='ml-2 underline'>
                     {typeof (count) === "number" ? `${count} min` : count}
                 </span>
-            </HeadingSecondary>
+            </h3>
             <SignatureButton className='mt-5' onClick={() =>
                 router.push('?' + createQueryString('join', 'superlist'))
-            } />
+            } >Join the superlist</SignatureButton>
         </header>
     );
 }

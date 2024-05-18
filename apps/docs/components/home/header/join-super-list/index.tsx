@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { GradientHeading, HeadingSecondary, Input, JoinButton, Textarea } from "@foliofy/ui"
-import Image from 'next/image';
+import { GradientText, Input, Dialog, DialogContent, DialogHeader, DialogFooter, Button } from "@foliofy/ui"
 
 type JoinSuperListProps = {
     isOpen: boolean
@@ -95,28 +94,33 @@ const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.El
 
 
     return (
-        isOpen ? <div className="h-screen backdrop-blur-lg absolute left-0 right-0 w-100 top-0 md:py-2">
-            <div className='relative w-full md:w-4/12 h-screen md:h-[95vh] md:border-[.1px] md:border-gray-400 md:rounded-2xl mx-auto px-4 py-2 bg-black' style={{
-                background: "url(/background/carvan.png) left bottom no-repeat, url(/background/stars.png) right bottom no-repeat",
-                backgroundSize: "contain, cover"
-            }} >
-                <Image alt='cancel-icon' onClick={visiblityHandler} src="/icons/cancel.svg" width={20} height={20} className='absolute top-2 right-2 cursor-pointer w-4 h-4 md:w-5 md:h-5' />
-                <HeadingSecondary>
-                    You are
-                </HeadingSecondary>
-                <GradientHeading className='font-semibold'>
-                    Super
-                </GradientHeading>
-                <p className='text-gray-400 mt-5 mx-4 text-xs md:text-lg'>
-                    We are about to release the stable version of the foliofy.
-                    Be the first one to use it
-                </p>
-                <Input placeholder='Full Name' value={joinListFormData.fullName} required name='fullName' onChange={handleChange} />
-                <Input placeholder='Type your email' required name='email' value={joinListFormData.email} onChange={handleChange} />
-                <Textarea placeholder='Any Feedbacks or reviews are appreciated' value={joinListFormData.feedback} name='feedback' rows={5} onChange={handleChange} />
-                <JoinButton onClick={validateForm} />
-            </div>
-        </div> : <></>
+        <Dialog open={isOpen} onOpenChange={visiblityHandler}>
+            <DialogContent className="h-[50vh] bg-black border-gray-800 py-5"
+            // className='relative w-full md:w-4/12 h-screen md:h-[95vh] md:border-[.1px] md:border-gray-400 md:rounded-2xl mx-auto px-4 py-2 bg-black'
+            >
+                <DialogHeader>
+                    <p className='text-center w-full text-3xl'>
+                        Join the
+                    </p>
+                    <p className='w-full text-6xl text-center'>
+                        <GradientText className='italic px-4 font-black'>
+                            Superlist
+                        </GradientText>
+                    </p>
+                </DialogHeader>
+                <div className="flex flex-col items-center gap-2 mt-6 w-10/12 mx-auto">
+                    <Input placeholder='Full Name' className="bg-black border-gray-800" value={joinListFormData.fullName} required name='fullName' onChange={handleChange} />
+                    <Input placeholder='Type your email' className="bg-black border-gray-800" required name='email' value={joinListFormData.email} onChange={handleChange} />
+                </div>
+                <DialogFooter>
+                    <Button className="w-10/12 mx-auto">
+                        <GradientText>
+                            Join super list
+                        </GradientText>
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
     );
 };
 

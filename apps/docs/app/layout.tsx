@@ -5,6 +5,18 @@ import "@foliofy/ui/index.css"
 export const metadata: Metadata = {
   title: "Foliofy",
   description: "Build & deploy your modern portfolio in 60 seconds",
+  keywords: [
+    "Foliofy",
+    "Build modern portfolio",
+    "Deploy portfolio fast",
+    "60-second portfolio",
+    "Instant portfolio creation",
+    "Modern portfolio builder",
+    "Quick portfolio deployment",
+    "Portfolio in a minute",
+    "Fast portfolio setup",
+    "Efficient portfolio tool"
+  ]
 };
 
 export default function RootLayout({
@@ -14,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body >{children}</body>
+      <body className="bg-black">{children}</body>
     </html>
   );
 }
