@@ -1,4 +1,5 @@
 import { Header } from "@/components/home/header";
+import StepCards from "@/components/home/header/steps-cards";
 import Navbar from "@/components/navbar";
 import { Suspense } from "react";
 
@@ -15,6 +16,7 @@ export default function Home() {
                 <Suspense>
                     <Header />
                 </Suspense>
+                <StepCards />
             </div>
         </>
     );
