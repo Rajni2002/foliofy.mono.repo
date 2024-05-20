@@ -7,7 +7,7 @@ interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
 
 export const GradientText = React.forwardRef<HTMLHeadingElement, HeadingProps>(
     ({ children, className, ...props }, ref) => (
-        <span className={mergeCN(className, "bg-gradient-to-l from-orange-500 from-[5%] to-[#7834FF] bg-clip-text text-transparent")} ref={ref} {...props}>
+        <span className={mergeCN("bg-gradient-to-l from-orange-500 from-[5%] to-[#7834FF] bg-clip-text text-transparent", className)} ref={ref} {...props}>
             {children}
         </span>
     )

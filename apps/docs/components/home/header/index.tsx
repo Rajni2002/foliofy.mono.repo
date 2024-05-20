@@ -57,14 +57,14 @@ export function Header() {
             <JoinSuperList isOpen={joinListModal} visiblityHandler={() =>
                 router.push(pathname)
             } />
-            <h1 className="font-semibold md:font-bold text-lg md:text-4xl leading-6 text-gray-400">Build & Deploy your</h1>
-            <GradientText className="font-black text-4xl md:text-8xl">Super-portfolio.</GradientText>
-            <h3 className="font-semibold md:font-bold text-lg md:text-4xl md:mt-3 text-gray-400">
+            <p className="font-semibold md:font-bold text-xl sm:text-4xl leading-6 text-gray-400 sm:text-gray-300">Build & Deploy your</p>
+            <GradientText className="font-black text-4xl sm:text-8xl">Super-portfolio.</GradientText>
+            <p className="font-semibold md:font-bold text-xl sm:text-4xl md:mt-3 text-gray-400 sm:text-gray-300">
                 in just
                 <span className='ml-2 underline'>
                     {typeof (count) === "number" ? `${count} min` : count}
                 </span>
-            </h3>
+            </p>
             <SignatureButton className='mt-5' onClick={() =>
                 router.push('?' + createQueryString('join', 'superlist'))
             } >Join the superlist</SignatureButton>

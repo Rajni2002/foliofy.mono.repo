@@ -96,7 +96,6 @@ const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.El
     return (
         <Dialog open={isOpen} onOpenChange={visiblityHandler}>
             <DialogContent className="md:h-[50vh] bg-black border-gray-800 py-5"
-            // className='relative w-full md:w-4/12 h-screen md:h-[95vh] md:border-[.1px] md:border-gray-400 md:rounded-2xl mx-auto px-4 py-2 bg-black'
             >
                 <DialogHeader>
                     <p className='text-center w-full text-xl md:text-3xl'>
