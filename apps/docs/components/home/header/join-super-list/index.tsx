@@ -147,9 +147,9 @@ const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.El
                     <Alert className="bg-black text-white border-gray-800">
                         <CheckCircleIcon className="h-4 w-4 stroke-green-500" />
                         <AlertDescription className="text-gray-500">
-                            We've added <span className="text-gray-300">{form.getValues().email} </span>
-                            to our waitlist.
-                            We'll let you know when foliofy is ready.
+                            Thanks for joining <span className="text-gray-300">{form.getValues().email} </span>
+                            the superlist.
+                            We&apos;ll let you know when foliofy is ready.
                         </AlertDescription>
                     </Alert>
                 }
