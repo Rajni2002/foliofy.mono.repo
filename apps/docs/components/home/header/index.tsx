@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 import JoinSuperList from "./join-super-list";
-import { GradientText, SignatureButton } from "@foliofy/ui";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { GradientText } from "@foliofy/ui/text";
+import { SignatureButton } from "@foliofy/ui/button";
 
 export function Header() {
     const [count, setCount] = useState<number | "Kidding 🤣">(0);

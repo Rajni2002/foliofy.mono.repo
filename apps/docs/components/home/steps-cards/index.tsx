@@ -4,7 +4,7 @@ import StepCard1 from './step-card/step-card-1';
 import StepCard2 from './step-card/step-card-2';
 import StepCard3 from './step-card/step-card-3';
 import { StepLine, StepNumber } from './step-card/wrapper';
-import { GradientText } from '@foliofy/ui';
+import { GradientText } from '@foliofy/ui/text';
 
 const StepCards = () => (
     <div className='w-full h-fit flex flex-col sm:flex-row justify-between gap-12 sm:gap-5 items-center'>

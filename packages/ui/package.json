@@ -13,14 +13,19 @@
   },
   "dependencies": {
     "@foliofy/utils": "1.0.0",
+    "@hookform/resolvers": "^3.4.2",
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-toast": "^1.1.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.378.0",
     "react": "^18.2.0",
+    "react-hook-form": "^7.51.5",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@swc/core": "^1.4.2",
@@ -37,6 +42,50 @@
     },
     "./index.css": {
       "default": "./dist/index.css"
+    },
+    "./input": {
+      "types": "./dist/input/index.d.ts",
+      "default": "./dist/input/index.js"
+    },
+    "./alert": {
+      "types": "./dist/alert/index.d.ts",
+      "default": "./dist/alert/index.js"
+    },
+    "./text": {
+      "types": "./dist/text/index.d.ts",
+      "default": "./dist/text/index.js"
+    },
+    "./button": {
+      "types": "./dist/button/index.d.ts",
+      "default": "./dist/button/index.js"
+    },
+    "./dialog": {
+      "types": "./dist/dialog/index.d.ts",
+      "default": "./dist/dialog/index.js"
+    },
+    "./label": {
+      "types": "./dist/label/index.d.ts",
+      "default": "./dist/label/index.js"
+    },
+    "./form": {
+      "types": "./dist/form/index.d.ts",
+      "default": "./dist/form/index.js"
+    },
+    "./toast": {
+      "types": "./dist/toast/index.d.ts",
+      "default": "./dist/toast/index.js"
+    },
+    "./toaster": {
+      "types": "./dist/toast/toaster.d.ts",
+      "default": "./dist/toast/toaster.js"
+    },
+    "./use-toast": {
+      "types": "./dist/toast/use-toast.d.ts",
+      "default": "./dist/toast/use-toast.js"
+    },
+    "./icons": {
+      "types": "./dist/icons/index.d.ts",
+      "default": "./dist/icons/index.js"
     }
   }
 }
