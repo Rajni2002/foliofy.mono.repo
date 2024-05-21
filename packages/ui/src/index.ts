@@ -10,7 +10,13 @@ export * from './text';
 export * from './button';
 
 // Dialog
-export * from "./dialog"
+export * from "./dialog";
+
+// Label
+export * from "./label"
+
+// Form
+export * from "./form";
 
 /** lucide icons */
 export * from "lucide-react"
