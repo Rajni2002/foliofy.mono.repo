@@ -3,7 +3,7 @@ import React from 'react';
 import { Inter } from "next/font/google";
 import { mergeCN } from '@foliofy/utils';
 import Image from 'next/image';
-import { GradientText } from '@foliofy/ui';
+import { GradientText } from '@foliofy/ui/text';
 
 const inter = Inter({ subsets: ['latin'] });
 

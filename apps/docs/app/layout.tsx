@@ -48,7 +48,9 @@ export default function RootLayout({
         <meta name="twitter:image:height" content="<generated>" />
         <meta property="twitter:image:alt" content="About Foliofy" />
       </head>
-      <body className="bg-black">{children}</body>
+      <body className="bg-black">
+        {children}
+      </body>
     </html>
   );
 }

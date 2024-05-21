@@ -1,5 +1,4 @@
 "use client"
-import { mergeCN } from '@foliofy/utils';
 import { useState, useEffect } from 'react';
 type TypingAnimationProps = {
   text: string;
