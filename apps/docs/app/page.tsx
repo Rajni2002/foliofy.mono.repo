@@ -1,4 +1,5 @@
 import Features from "@/components/home/features";
+import Footer from "@/components/home/footer";
 import { Header } from "@/components/home/header";
 import StepCards from "@/components/home/steps-cards";
 import TechStacks from "@/components/home/tech-stacks";
@@ -20,6 +21,7 @@ export default function Home() {
             <StepCards />
             <TechStacks />
             <Features />
+            <Footer />
         </div>
     );
 }

@@ -1,11 +1,11 @@
 "use client"
 import React from 'react';
-import { Inter } from "next/font/google"
+import { Inter } from "next/font/google";
 import { mergeCN } from '@foliofy/utils';
 import Image from 'next/image';
 import { GradientText } from '@foliofy/ui';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 type FeatureProps = {
     topTitle: string;
@@ -16,14 +16,14 @@ type FeatureProps = {
 }
 
 const Feature = ({ topTitle, bottomTitle, path, to, content }: FeatureProps) => (
-    <div className={mergeCN(inter.className, "w-full my-10 flex justify-evenly items-center gap-5 flex-col-reverse", to === "left" ? "md:!flex-row-reverse" : "md:!flex-row")}>
+    <div className={mergeCN(inter.className, "w-full my-14 md:!my-10 flex justify-evenly items-center gap-0 md:!gap-5 flex-col-reverse", to === "left" ? "md:!flex-row-reverse" : "md:!flex-row")}>
         <div className='w-full md:!w-6/12'>
             <h2 className='text-white text-2xl md:!text-5xl font-bold md:!text-left text-center'>
                 <GradientText>
                     {topTitle}
                 </GradientText>
             </h2>
-            <h2 className='text-white text-2xl md:!text-5xl font-bold md:!text-left text-center'>
+            <h2 className='text-gray-400 text-2xl md:!text-5xl font-bold md:!text-left text-center'>
                 {bottomTitle}
             </h2>
             <p className='text-gray-400 text-sm md:!text-lg mt-3 md:mt-5 md:!text-left text-center'>{content}</p>
