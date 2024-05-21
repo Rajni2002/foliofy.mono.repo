@@ -16,7 +16,17 @@ export const metadata: Metadata = {
     "Portfolio in a minute",
     "Fast portfolio setup",
     "Efficient portfolio tool"
-  ]
+  ],
+  openGraph: {
+    title: "Foliofy",
+    description: "Build & deploy your modern portfolio in 60 seconds",
+    images: {
+      url: "/image/background/carvan.png",
+      alt: "Carvan",
+      width: 80,
+      height: 40
+    }
+  }
 };
 
 export default function RootLayout({
@@ -26,6 +36,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta property="og:image" content="<generated>" />
+        <meta property="og:image:type" content="<generated>" />
+        <meta property="og:image:width" content="<generated>" />
+        <meta property="og:image:height" content="<generated>" />
+        <meta property="og:image:alt" content="About Acme" />
+      </head>
       <body className="bg-black">{children}</body>
     </html>
   );
