@@ -2,7 +2,7 @@ import React from 'react';
 import StepWrapper from './wrapper';
 
 const rawObject = {
-    name: "Rajnikant dash",
+    name: "John doe",
     theme: "blue",
 };
 

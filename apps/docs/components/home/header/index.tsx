@@ -66,7 +66,7 @@ export function Header() {
                     {typeof (count) === "number" ? `${count} min` : count}
                 </span>
             </p>
-            <SignatureButton className='mt-5' onClick={() =>
+            <SignatureButton className='animate-bounce mt-5' onClick={() =>
                 router.push('?' + createQueryString('join', 'superlist'))
             } >Join the superlist</SignatureButton>
         </header>
