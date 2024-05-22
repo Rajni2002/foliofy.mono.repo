@@ -1,7 +1,7 @@
 const siteConfig = {
     name: "Foliofy",
     url: "https://foliofy-mono-repo-docs.vercel.app/",
-    ogImage: "/og.png",
+    ogImage: "https://foliofy-mono-repo-docs.vercel.app/og.png",
     description: "Build & deploy your modern portfolio in 60 seconds. Accessible. Customizable. Open Source.",
     links: {
         twitter: "https://twitter.com/rajni2k2",
