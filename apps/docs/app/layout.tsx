@@ -1,19 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "@foliofy/ui/index.css"
-
-export const siteConfig = {
-  name: "Foliofy",
-  url: "https://foliofy-mono-repo-docs.vercel.app/",
-  ogImage: "/og.png",
-  description: "Build & deploy your modern portfolio in 60 seconds. Accessible. Customizable. Open Source.",
-  links: {
-    twitter: "https://twitter.com/rajni2k2",
-    github: "https://github.com/Rajni2002/foliofy.mono.repo/",
-  },
-  creator: "Rajnikant dash"
-}
-export type SiteConfig = typeof siteConfig
+import siteConfig from "@/config/site-config";
 
 export const metadata: Metadata = {
   title: {
