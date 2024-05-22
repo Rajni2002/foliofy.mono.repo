@@ -16,11 +16,11 @@ const Footer = () => (
             </p>
         </div>
         <div className="text-gray-500 tracking-wide text-sm">
-            <Link target="__blank" className="underline hover:text-white" href="https://www.linkedin.com/in/rajnikant-dash-2k2/">Github</Link>
+            <Link target="__blank" className="underline hover:text-white" href="https://github.com/Rajni2002/">Github</Link>
             <span> • </span>
             <Link target="__blank" className="underline hover:text-white" href="https://twitter.com/rajni2k2/">Twitter</Link>
             <span> • </span>
-            <Link target="__blank" className="underline hover:text-white" href="https://www.linkedin.com/in/rajnikant-dash-2k2/">Instagram</Link>
+            <Link target="__blank" className="underline hover:text-white" href="https://www.linkedin.com/in/rajnikant-dash-2k2/">LinkedIn</Link>
             <span> • </span>
             <Link target="__blank" className="underline hover:text-white" href="mailto:rajnikantdash12@gmail.com">Email</Link>
         </div>
