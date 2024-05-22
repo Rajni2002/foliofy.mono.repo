@@ -22,7 +22,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
             })
         })
         const isExistJSON = await isExist.json();
-        if (isExistJSON.results.length) {
+        if (isExistJSON?.results?.length) {
             return NextResponse.json({ exist: true }, { status: 200 });
         }
         // POST if it does'nt exist
