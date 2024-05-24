@@ -3,7 +3,7 @@ import { Button } from "@foliofy/ui/button";
 import { Dialog, DialogContent, DialogHeader } from "@foliofy/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@foliofy/ui/form";
 import { CheckCircleIcon } from "@foliofy/ui/icons";
-import { Input } from "@foliofy/ui/input";
+import { Input, Textarea } from "@foliofy/ui/input";
 import { GradientText } from "@foliofy/ui/text";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -20,7 +20,8 @@ const FormSchema = z.object({
     fullName: z.string().min(4, {
         message: "Field empty"
     }),
-    email: z.string().email({ message: "Invalid mail" })
+    email: z.string().email({ message: "Invalid mail" }),
+    feedback: z.string()
 })
 
 const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.Element => {
@@ -52,6 +53,16 @@ const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.El
                     "Date": {
                         "type": "date",
                         "date": { "start": new Date().toISOString() }
+                    },
+                    "Feedback": {
+                        "rich_text": [
+                            {
+                                "type": "text",
+                                "text": {
+                                    "content": values.feedback
+                                }
+                            }
+                        ]
                     }
                 }
             }
@@ -69,7 +80,7 @@ const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.El
                 setIsSubmitted(true);
             }
         } catch (error) {
-            form.setError("email", {
+            form.setError("feedback", {
                 type: "manual",
                 message: "Something went wrong!",
             })
@@ -125,6 +136,22 @@ const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.El
                                                 {...field}
                                                 placeholder='Email'
                                                 className="bg-black border-gray-800"
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="feedback"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormControl>
+                                            <Textarea
+                                                {...field}
+                                                placeholder='We love feedback! Drop yours here...'
+                                                className="bg-black border-gray-800 mt-4"
                                             />
                                         </FormControl>
                                         <FormMessage />
