@@ -2,13 +2,15 @@ import { Alert, AlertDescription, AlertTitle } from "@foliofy/ui/alert";
 import { Button } from "@foliofy/ui/button";
 import { Dialog, DialogContent, DialogHeader } from "@foliofy/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@foliofy/ui/form";
-import { CheckCircleIcon } from "@foliofy/ui/icons";
+import { CheckCheck, CheckCircleIcon, Copy } from "@foliofy/ui/icons";
 import { Input, Textarea } from "@foliofy/ui/input";
 import { GradientText } from "@foliofy/ui/text";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+
+const LINK = "https://foliofy-mono-repo-docs.vercel.app/?join=superlist";
 
 type JoinSuperListProps = {
     isOpen: boolean
@@ -33,6 +35,18 @@ const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.El
         },
     })
     const [isSubmmitted, setIsSubmitted] = useState(false);
+    const [isCopied, setIsCopied] = useState(false);
+
+    useEffect(() => {
+        if (isCopied) {
+            const timer = setTimeout(() => {
+                setIsCopied(false);
+            }, 2000);
+
+            // Cleanup the timer on component unmount or when `isCopied` changes
+            return () => clearTimeout(timer);
+        }
+    }, [isCopied]);
 
 
     async function onSubmit(values: z.infer<typeof FormSchema>) {
@@ -171,13 +185,34 @@ const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.El
                         </form>
                     </Form>
                     :
-                    <Alert className="bg-black text-white border-gray-800">
+                    <Alert className="bg-black text-white/80 border-gray-800">
                         <CheckCircleIcon className="h-4 w-4 stroke-green-500" />
-                        <AlertDescription className="text-gray-500">
-                            Thanks for joining <span className="text-gray-300">{form.getValues().email} </span>
+                        <h1 className="text-sm font-semibold mb-1">Thanks for joining <span className="text-gray-300">{form.getValues().email} </span>
                             the superlist.
-                            We&apos;ll let you know when foliofy is ready.
+                        </h1>
+                        <AlertDescription className="text-gray-400 text-xs">
+                            Spread the word! Share this link with your developer friends and connections
                         </AlertDescription>
+                        <div className="flex items-center gap-4 justify-center mt-3">
+                            <Input disabled value={LINK}
+                                className="bg-black border-gray-600 text-xs"
+                            />
+                            <div className="hover:brightness-150 border-gray-500 hover:cursor-pointer"
+                                onClick={() => {
+                                    navigator.clipboard.writeText(LINK).then(() => {
+                                        // Optionally, alert the user that the link has been copied
+                                        setIsCopied(true);
+                                    }).catch(err => {
+                                        // Handle any errors that occur during the copy operation
+                                        form.setError("feedback", {
+                                            type: "manual",
+                                            message: "Failed to copy link",
+                                        })
+                                    });
+                                }}>
+                                {isCopied ? <CheckCheck className="h-4 w-4 text-gray-500" /> : <Copy className="h-4 w-4 text-gray-500" />}
+                            </div>
+                        </div>
                     </Alert>
                 }
             </DialogContent>
