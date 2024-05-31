@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "@foliofy/ui/index.css"
 import siteConfig from "@/config/site-config";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: {
@@ -68,6 +70,8 @@ export default function RootLayout({
       <head />
       <body className="bg-black">
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
