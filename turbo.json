@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["apps/docs/.next/**","!.next/cache/**", "!**/node_modules/**"]
+      "outputs": [".next/**", "!.next/cache/**"]
     }
   }
 }
