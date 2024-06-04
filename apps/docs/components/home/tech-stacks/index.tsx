@@ -11,7 +11,7 @@ const imagePaths: string[] = [
     "/img/yarn.png",
 ]
 const TechStacks = () => (
-    <div className="my-36">
+    <div className="my-44">
         <h2 className="text-gray-600 font-semibold my-4 text-xl md:text-2xl text-center">Powered by</h2>
         <div className="flex justify-between mx-5 md:mx-32">
             {imagePaths.slice(0, 4).map(path => <SkewCard key={path} path={path} />)}

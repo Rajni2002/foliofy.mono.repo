@@ -164,7 +164,7 @@ const JoinSuperList = ({ isOpen, visiblityHandler }: JoinSuperListProps): JSX.El
                                         <FormControl>
                                             <Textarea
                                                 {...field}
-                                                placeholder='We love feedback! Drop yours here...'
+                                                placeholder='We love hear your feedback on our concept'
                                                 className="bg-black border-gray-800 mt-4"
                                             />
                                         </FormControl>

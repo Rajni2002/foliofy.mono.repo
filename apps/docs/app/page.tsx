@@ -19,8 +19,8 @@ export default function Home() {
                 <Header />
             </Suspense>
             <StepCards />
-            <TechStacks />
             <Features />
+            <TechStacks />
             <Footer />
         </div>
     );
