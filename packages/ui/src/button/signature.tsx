@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { ButtonProps } from "./types"
 
 export const signatureButtonVariants = cva(
-    "cursor-pointer font-bold border-[1px] py-1 px-4 rounded-2xl border-gray-700 w-fit transition duration-500",
+    "bg-gradient-to-l from-orange-500 from-[5%] to-[#7834FF] text-white cursor-pointer font-bold border-[1px] sm:py-2 py-1 sm:px-5 px-4 rounded-3xl sm:rounded-4xl border-gray-700 w-fit transition duration-500",
     {
         variants: {
             mode: {
@@ -29,7 +29,7 @@ export const SignatureButton = React.forwardRef<HTMLButtonElement, SignatureButt
                 {...props}
                 ref={ref}
             >
-                <span className='bg-gradient-to-l from-orange-500 from-[5%] to-[#7834FF] bg-clip-text text-transparent'>
+                <span>
                     {children}
                 </span>
                 <span className='ml-2'>

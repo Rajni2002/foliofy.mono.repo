@@ -54,7 +54,7 @@ export function Header() {
         }, incrementTime);
     }, [])
     return (
-        <header className='my-16 text-center'>
+        <header className='my-36 text-center'>
             <JoinSuperList isOpen={joinListModal} visiblityHandler={() =>
                 router.push(pathname)
             } />
@@ -66,7 +66,7 @@ export function Header() {
                     {typeof (count) === "number" ? `${count} min` : count}
                 </span>
             </p>
-            <SignatureButton className='animate-bounce mt-5' onClick={() =>
+            <SignatureButton className='animate-bounce mt-14' onClick={() =>
                 router.push('?' + createQueryString('join', 'superlist'))
             } >Join the superlist</SignatureButton>
         </header>
