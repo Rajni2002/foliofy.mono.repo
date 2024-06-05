@@ -3,6 +3,12 @@ import "@/styles/globals.css";
 import "@foliofy/ui/index.css"
 import siteConfig from "@/config/site-config";
 
+// fonts
+import { Inter } from 'next/font/google'
+import { ThemeProvider } from "@/components/theme-provider";
+
+const inter = Inter({ subsets: ['latin'] })
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -66,8 +72,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className="bg-black">
-        {children}
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

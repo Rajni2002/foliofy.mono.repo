@@ -86,6 +86,10 @@
     "./icons": {
       "types": "./dist/icons/index.d.ts",
       "default": "./dist/icons/index.js"
+    },
+    "./theme-provider": {
+      "types": "./dist/themes/provider.d.ts",
+      "default": "./dist/themes/provider.js"
     }
   }
 }

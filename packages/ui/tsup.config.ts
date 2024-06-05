@@ -18,6 +18,8 @@ export default defineConfig({
         "src/alert/index.tsx",
         "src/toast/toaster.tsx",
         "src/toast/use-toast.tsx",
+        "src/themes/provider.tsx",
+        "src/themes/theme.ts",
     ],
     // Enable TypeScript type definitions to be generated in the output.
     // This provides type-definitions to consumers.
