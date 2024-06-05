@@ -19,12 +19,12 @@ const nav_items: NavItem[] = [
         path: "/connect"
     },
     {
-        name: "reads",
-        path: "/reads"
+        name: "blogs",
+        path: "/blogs"
     },
     {
-        name: "works",
-        path: "/works"
+        name: "work",
+        path: "/work"
     },
     {
         name: "story map",
