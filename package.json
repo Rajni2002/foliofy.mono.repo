@@ -14,7 +14,7 @@
   },
   "scripts": {
     "docs": "yarn --cwd apps/docs dev",
-    "app": "yarn --cwd apps/web dev"
+    "app": "yarn --cwd apps/main dev"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
