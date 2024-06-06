@@ -1,29 +1,37 @@
-"use client"
+//server-side
+import fs from 'fs';
+import path from "path";
 
 //components
+import HeroSection from "@/components/home/HeroSection";
 import Navbar from "@/components/navbar";
 
 // context & configs
-import { ThemeProvider } from "@foliofy/ui/theme-provider";
+import { ThemeTypeProvider } from "@foliofy/ui/theme-provider";
 
-// utils
-import { mergeCN } from "@foliofy/utils";
+async function getData() {
+    const imagePath = path.join(process.cwd(), 'public', 'home', 'hero.png');
+    let image = null;
 
-// fonts
-import { Inter } from 'next/font/google'
+    try {
+        await fs.promises.access(imagePath, fs.constants.F_OK);
+        image = "/home/hero.png";
+    } catch (err) {
+        image = null;
+    }
 
-const inter = Inter({ subsets: ['latin'] })
+    return {
+        image
+    };
+}
 
-export default function Home() {
+export default async function Home() {
+    const { image } = await getData()
     return (
-        <ThemeProvider theme="default" radius={1.0}
-            className={
-                mergeCN(
-                    "min-h-screen bg-background text-gray-900 dark:bg-black dark:text-gray-100 antialiased"
-                    , inter.className
-                )}>
+        <ThemeTypeProvider theme="yellow">
             <Navbar currPath="/" />
-        </ThemeProvider>
+            <HeroSection image={image} />
+        </ThemeTypeProvider>
 
     );
 }

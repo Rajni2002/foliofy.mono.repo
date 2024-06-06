@@ -1,0 +1,1 @@
+export type HeroImageType = { image: string | null }
