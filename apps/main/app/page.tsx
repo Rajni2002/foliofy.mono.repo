@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
     return (
-        <ThemeProvider theme="yellow" radius={1.0}
+        <ThemeProvider theme="default" radius={1.0}
             className={
                 mergeCN(
                     "min-h-screen bg-background text-gray-900 dark:bg-black dark:text-gray-100 antialiased"
