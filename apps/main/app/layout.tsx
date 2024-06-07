@@ -7,6 +7,8 @@ import siteConfig from "@/config/site-config";
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from "@/components/theme-provider";
 import { mergeCN } from "@foliofy/utils";
+import { ThemeTypeProvider } from "@foliofy/ui/theme-provider";
+import Navbar from "@/components/navbar";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -73,14 +75,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={mergeCN(inter.className, "min-h-screen sm:px-20 bg-gray-100 text-gray-900 dark:bg-black/60 dark:text-gray-300 antialiased")}>
+      <body className={mergeCN(inter.className, "min-h-screen sm:px-20 py-10 bg-gray-100 text-gray-900 dark:bg-black/60 dark:text-gray-300 antialiased")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ThemeTypeProvider>
+            <Navbar currPath="/" />
+            {children}
+          </ThemeTypeProvider>
         </ThemeProvider>
       </body>
     </html>

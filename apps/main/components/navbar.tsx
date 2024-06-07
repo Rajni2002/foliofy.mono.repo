@@ -1,12 +1,9 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { Amaranth } from 'next/font/google';
 
 import { mergeCN as cn } from '@foliofy/utils';
 import { MoonStarIcon, Sun } from '@foliofy/ui/icons';
 import { useTheme } from 'next-themes';
-
-const amaranth = Amaranth({ weight: "700", style: "italic", subsets: ["latin"] })
 
 const nav_items: NavItem[] = [
     {
@@ -54,7 +51,7 @@ const Navbar = ({ currPath }: NavbarProps) => {
     }
 
     return (
-        <nav className='mt-5'>
+        <nav>
             <div className='flex'>
                 <div className={cn("sm:block sm:w-auto h-full backdrop-blur-xl", showMenu ? "block absolute left-0 right-0 w-100 top-[12%]" : "hidden w-full")}>
                     <ul className="text-center font-medium flex flex-col py-4 sm:p-0 rounded-lg sm:flex-row sm:space-x-8 sm:mt-0 sm:border-0 bg-inherit">
