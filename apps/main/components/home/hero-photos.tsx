@@ -1,7 +1,6 @@
 import { HeroPhotosType } from "@/types/home";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@foliofy/ui/carousel";
 import Image from "next/image";
-import SwipeAnimation from "./SwipeAnimation";
 
 
 const HeroPhotos = ({ images = [] }: { images?: HeroPhotosType }) => (

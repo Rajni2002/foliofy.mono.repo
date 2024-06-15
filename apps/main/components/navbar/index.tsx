@@ -1,7 +1,7 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import { mergeCN as cn, mergeCN } from '@foliofy/utils';
+import { mergeCN as cn } from '@foliofy/utils';
 import { BriefcaseBusinessIcon, Home, Newspaper, Users } from '@foliofy/ui/icons';
 import { usePathname } from 'next/navigation';
 import { NavItem } from '@/types/navbar';
@@ -36,15 +36,13 @@ const nav_items: NavItem[] = [
     // },
 ]
 
-const DEFAULT_NAV_ITEM_CLASS = ""
-
 
 const Navbar = () => {
     const pathname = usePathname();
     return (
         <nav className='flex w-fit justify-between px-4 py-2 gap-5 items-center bg-white/20 backdrop-blur fixed bottom-5 mx-auto left-0 right-0 z-10 rounded-xl text-gray-400'>
             {nav_items.map(item =>
-                <div key={item.path} className={mergeCN('cursor-pointer',
+                <div key={item.path} className={cn('cursor-pointer',
                     item.path === pathname ? "bg-white p-2 rounded-xl text-black" : "")}>
                     <Link href={item.path}>
                         {item.icon}

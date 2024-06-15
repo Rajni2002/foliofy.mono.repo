@@ -31,14 +31,15 @@ function readImages(directoryPath: string): Promise<string[]> {
 }
 
 async function getData() {
-    const imagePath = path.join(process.cwd(), 'public', 'home', 'hero.png');
+    const imagePath = path.join(process.cwd(), 'public', 'home', 'hero.jpeg');
     let heroImages: HeroPhotosType = [];
     let image = null;
     try {
         await fs.promises.access(imagePath, fs.constants.F_OK);
-        image = "/home/hero.png";
+        image = "/home/hero.jpeg";
         heroImages = await readImages(path.join(process.cwd(), 'public', 'home', 'hero-photos'));
     } catch (err) {
+        console.log(err)
         image = null;
     }
     return {
@@ -48,7 +49,7 @@ async function getData() {
 }
 
 export default async function Home() {
-    const { image, heroImages } = await getData()
+    const { image, heroImages } = await getData();
     return (
         <>
             <HeroSection image={image} />
