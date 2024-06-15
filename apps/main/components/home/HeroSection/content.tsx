@@ -1,5 +1,5 @@
 const Content = () => (
-    <div className="w-10/12 sm:w-fit">
+    <div className="w-full sm:w-fit">
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">hey, I&apos;m&nbsp;
             <i className=" underline">
                 rajni

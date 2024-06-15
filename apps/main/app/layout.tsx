@@ -75,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={mergeCN(inter.className, "min-h-screen sm:px-20 py-10 bg-gray-100 text-gray-900 dark:bg-black/60 dark:text-gray-300 antialiased")}>
+      <body className={mergeCN(inter.className, "relative min-h-screen px-5 sm:px-20 py-10 bg-gray-100 text-gray-900 dark:bg-black/60 dark:text-gray-300 antialiased")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -83,7 +83,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ThemeTypeProvider>
-            <Navbar currPath="/" />
+            <Navbar />
             {children}
           </ThemeTypeProvider>
         </ThemeProvider>

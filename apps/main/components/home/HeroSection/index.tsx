@@ -7,7 +7,7 @@ import Content from './content';
 
 const HeroSection = ({ image }: HeroImageType) => {
     return (
-        <main className='flex flex-col sm:flex-row w-full justify-between items-center my-20 gap-10'>
+        <main className='flex flex-col sm:flex-row w-full justify-between items-center my-5 sm:my-20 gap-10'>
             <Content />
             {image &&
                 <Image
