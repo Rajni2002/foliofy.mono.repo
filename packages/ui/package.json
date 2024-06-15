@@ -20,6 +20,7 @@
     "@radix-ui/react-toast": "^1.1.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.1.3",
     "lucide-react": "^0.378.0",
     "react": "^18.2.0",
     "react-hook-form": "^7.51.5",
@@ -90,6 +91,18 @@
     "./theme-provider": {
       "types": "./dist/themes/provider.d.ts",
       "default": "./dist/themes/provider.js"
+    },
+    "./carousel": {
+      "types": "./dist/carousel/index.d.ts",
+      "default": "./dist/carousel/index.js"
+    },
+    "./skeleton": {
+      "types": "./dist/skeleton/index.d.ts",
+      "default": "./dist/skeleton/index.js"
+    },
+    "./typography": {
+      "types": "./dist/typography/index.d.ts",
+      "default": "./dist/typography/index.js"
     }
   }
 }
