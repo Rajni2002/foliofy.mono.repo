@@ -99,6 +99,10 @@
     "./skeleton": {
       "types": "./dist/skeleton/index.d.ts",
       "default": "./dist/skeleton/index.js"
+    },
+    "./typography": {
+      "types": "./dist/typography/index.d.ts",
+      "default": "./dist/typography/index.js"
     }
   }
 }

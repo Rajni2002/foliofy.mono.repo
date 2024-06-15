@@ -21,3 +21,75 @@ export function H2({ children, className }: TypographyType) {
         </h2>
     )
 }
+
+export function H3({ children, className }: TypographyType) {
+    return (
+        <h3 className={cn("scroll-m-20 text-2xl font-semibold tracking-tight", className)}>
+            {children}
+        </h3>
+    )
+}
+
+export function H4({ children, className }: TypographyType) {
+    return (
+        <h4 className={cn("scroll-m-20 text-xl font-semibold tracking-tight", className)}>
+            {children}
+        </h4>
+    )
+}
+
+export function P({ children, className }: TypographyType) {
+    return (
+        <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}>
+            {children}
+        </p>
+    )
+}
+
+export function Blockquote({ children, className }: TypographyType) {
+    return (
+        <blockquote className={cn("mt-6 border-l-2 pl-6 italic", className)}>
+            {children}
+        </blockquote>
+    )
+}
+
+export function InlineCode({ children, className }: TypographyType) {
+    return (
+        <code className={cn("relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold", className)}>
+            {children}
+        </code>
+    )
+}
+
+export function Lead({ children, className }: TypographyType) {
+    return (
+        <p className={cn("text-xl text-muted-foreground", className)}>
+            {children}
+        </p>
+    )
+}
+
+export function Large({ children, className }: TypographyType) {
+    return (
+        <div className={cn("text-lg font-semibold", className)}>
+            {children}
+        </div>
+    )
+}
+
+export function Small({ children, className }: TypographyType) {
+    return (
+        <small className={cn("text-sm font-medium leading-none", className)}>
+            {children}
+        </small>
+    )
+}
+
+export function Muted({ children, className }: TypographyType) {
+    return (
+        <p className={cn("text-sm text-muted-foreground", className)}>
+            {children}
+        </p>
+    )
+}

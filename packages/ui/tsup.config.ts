@@ -17,6 +17,7 @@ export default defineConfig({
         "src/toast/index.tsx",
         "src/alert/index.tsx",
         "src/carousel/index.tsx",
+        "src/typography/index.tsx",
         "src/skeleton/index.tsx",
         "src/toast/toaster.tsx",
         "src/toast/use-toast.tsx",

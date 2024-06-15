@@ -16,7 +16,7 @@ const ToggleTheme = () => {
     }
 
     return (
-        <div className="cursor-pointer hover:opacity-75 border-l pl-3 border-gray-400 text-white" onClick={
+        <div className="cursor-pointer hover:opacity-75 border-l pl-3 border-gray-400 text-gray-600 dark:text-white" onClick={
             () => setTheme((theme === "dark" ? "light" : "dark"))
         }>
             {
