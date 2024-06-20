@@ -1,31 +1,21 @@
 "use client"
-import { LinkPreviewProps } from '@/types/ui/link-preview';
-import { Card } from '@foliofy/ui/card';
-import { ChevronsDownUp, ChevronsUpDown, MoveUpRight } from '@foliofy/ui/icons';
-import { H3, H4, Muted, P } from '@foliofy/ui/typography';
-import { mergeCN } from '@foliofy/utils';
-import Image from 'next/image';
-import Link from 'next/link';
+//hooks
 import { useState } from 'react';
 
-function truncateUrl(url: string) {
-    // Remove 'https://' if it exists
-    if (url.startsWith('https://')) {
-        url = url.slice(8);
-    }
+// types
+import { LinkPreviewProps } from '@/types/ui/link-preview';
 
-    // Remove 'http://' if it exists
-    if (url.startsWith('http://')) {
-        url = url.slice(7);
-    }
+// components
+import { Card } from '@foliofy/ui/card';
+import { H3, Muted, P } from '@foliofy/ui/typography';
+import Image from 'next/image';
+import Link from 'next/link';
 
-    // Remove 'www.' if it exists
-    if (url.startsWith('www.')) {
-        url = url.slice(4);
-    }
+// icons
+import { ChevronsDownUp, ChevronsUpDown, MoveUpRight } from '@foliofy/ui/icons';
 
-    return url;
-}
+// utils
+import { mergeCN, truncateUrl } from '@foliofy/utils';
 
 const Preview = (props: LinkPreviewProps) => {
     const expands = props.pinned ? props.pinned : <P>{props.description}</P>
@@ -48,8 +38,12 @@ const Preview = (props: LinkPreviewProps) => {
                             </div>
                         </div>
                     </div>
-                    <H3 className='dark:text-gray-200'>{props.title.length >= 60 ? `${props.title.slice(0, 60)}...` : props.title}</H3>
-                    <Muted className='underline mt-2'>{truncateUrl(props.url)}</Muted>
+                    <H3 className='dark:text-gray-200'>{props.title.length >= 60 ? (open ? props.title : `${props.title.slice(0, 60)}...`) : props.title}</H3>
+                    <Muted className='underline mt-2'>
+                        <Link href={props.url} target='_blank' className='hover:text-gray-300'>
+                            {truncateUrl(props.url)}
+                        </Link>
+                    </Muted>
                 </div>
                 {props.coverURL.length !== 0 && <div className={mergeCN('rounded-xl overflow-hidden', open ? "w-full" : "w-6/12")}>
                     <Image unoptimized width={100} height={50} className='h-full w-full object-cover' alt='Cover image of urls' src={props.coverURL} />
