@@ -19,6 +19,7 @@ export default defineConfig({
         "src/carousel/index.tsx",
         "src/typography/index.tsx",
         "src/skeleton/index.tsx",
+        "src/card/index.tsx",
         "src/toast/toaster.tsx",
         "src/toast/use-toast.tsx",
         "src/themes/provider.tsx",
