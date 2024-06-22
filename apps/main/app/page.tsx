@@ -1,10 +1,8 @@
 //server-side
 import fs from 'fs';
 import path from "path";
-
 //components
 import HeroSection from "@/components/home/HeroSection";
-import Navbar from "@/components/navbar";
 import HeroPhotos from '@/components/home/hero-photos';
 
 // context & configs

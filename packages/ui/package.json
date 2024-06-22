@@ -103,6 +103,10 @@
     "./typography": {
       "types": "./dist/typography/index.d.ts",
       "default": "./dist/typography/index.js"
+    },
+    "./card": {
+      "types": "./dist/card/index.d.ts",
+      "default": "./dist/card/index.js"
     }
   }
 }
