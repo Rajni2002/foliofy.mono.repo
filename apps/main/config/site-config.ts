@@ -5,11 +5,24 @@ const siteConfig = {
   description:
     "Build & deploy your modern portfolio in 60 seconds. Accessible. Customizable. Open Source.",
   connect: {
-    twitter: "https://twitter.com/rajni2k2",
-    github: "https://github.com/Rajni2002/foliofy.mono.repo/",
-    others: {
-        
-    },
+    primary: [
+      {
+        url: "https://twitter.com/rajni2k2",
+        pinned: [],
+      },
+      {
+        url: "https://github.com/Rajni2002",
+      },
+    ],
+    secondary: [
+      "https://www.linkedin.com/feed/update/urn:li:activity:7056726034116673536/",
+      "https://foliofyjs.vercel.app/",
+      "https://buildspace.so/home",
+      "https://www.youtube.com/watch?v=73_1biulkYk",
+      "https://rajnikantdash.notion.site/",
+      "https://dev.to/ibelick/creating-bento-grid-layouts-with-css-tailwind-css-26mo",
+      "https://whoswho.mt/en/locally-developed-audit-automation-software-attracts-global-attention-with-12-16-million-valuation"
+    ],
   },
   creator: "Rajnikant dash",
 };

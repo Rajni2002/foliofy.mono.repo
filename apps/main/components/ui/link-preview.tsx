@@ -12,7 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 // icons
-import { ChevronsDownUp, ChevronsUpDown, MoveUpRight } from '@foliofy/ui/icons';
+import { ChevronsDownUp, ChevronsUpDown, Maximize2, Minimize2, MoveUpRight } from '@foliofy/ui/icons';
 
 // utils
 import { mergeCN, truncateUrl } from '@foliofy/utils';
@@ -22,8 +22,8 @@ const Preview = (props: LinkPreviewProps) => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(prev => !prev);
     return (
-        <Card className='p-6 relative sm:w-6/12 dark:border-gray-800 rounded-xl shadow-xl dark:shadow-gray-800'>
-            <div className='p-1 absolute top-3 right-3 rounded-full bg-inherit border dark:border-gray-600 hover:-rotate-12 transition-all cursor-pointer'>
+        <Card className='p-6 relative break-inside-avoid h-fit dark:border-gray-800 rounded-xl shadow-xl dark:shadow-gray-800 my-4 sm:my-14'>
+            <div className='p-1 absolute top-3 right-3 rounded-full bg-inherit/70 backdrop-blur-sm dark:border-gray-600 hover:-rotate-12 transition-all cursor-pointer text-gray-400'>
                 <Link href={props.url} target='_blank'>
                     <MoveUpRight size={20} />
                 </Link>
@@ -33,8 +33,8 @@ const Preview = (props: LinkPreviewProps) => {
                     <div className='flex justify-between items-center mb-4'>
                         {props.iconURL.length !== 0 && <Image unoptimized width={30} height={30} alt='favicons of urls' className='rounded-lg' src={props.iconURL} />}
                         <div className='flex gap-3 items-center'>
-                            <div onClick={handleOpen} className='p-1 rounded-full bg-inherit hover:scale-110 transition-all cursor-pointer'>
-                                {open ? <ChevronsDownUp size={20} /> : <ChevronsUpDown size={20} />}
+                            <div onClick={handleOpen} className='p-1 rounded-full bg-inherit hover:scale-110 transition-all cursor-pointer text-gray-400'>
+                                {open ? <Minimize2 size={20} /> : <Maximize2 size={20} />}
                             </div>
                         </div>
                     </div>
