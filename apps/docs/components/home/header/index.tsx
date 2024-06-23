@@ -58,9 +58,9 @@ export function Header() {
             <JoinSuperList isOpen={joinListModal} visiblityHandler={() =>
                 router.push(pathname)
             } />
-            <p className="font-semibold md:font-bold text-xl sm:text-4xl leading-6 text-gray-400 sm:!text-gray-200">Build & Deploy your</p>
-            <GradientText className="font-black text-4xl sm:text-8xl">Super-portfolio.</GradientText>
-            <p className="font-semibold md:font-bold text-xl sm:text-4xl md:mt-3 text-gray-400 sm:!text-gray-200">
+            <p className="font-semibold md:font-bold text-xl sm:!text-4xl leading-6 text-gray-400 sm:!text-gray-200">Build & Deploy your</p>
+            <GradientText className="font-black text-4xl sm:!text-8xl">Super-portfolio.</GradientText>
+            <p className="font-semibold md:font-bold text-xl sm:!text-4xl md:mt-3 text-gray-400 sm:!text-gray-200">
                 in just
                 <span className='ml-2 underline'>
                     {typeof (count) === "number" ? `${count} min` : count}

@@ -1,10 +1,18 @@
+// components
 import Preview from '@/components/ui/link-preview';
-import siteConfig from '@/config/site-config';
-import { LinkPreviewProps, URLstringType } from '@/types/ui/link-preview';
-import { readSavedData, saveData } from '@/utils/crud-local/connect';
-import createShortHash from '@/utils/url-to-hash';
 import { H1, H2 } from '@foliofy/ui/typography';
+
+// utils
+import createShortHash from '@/utils/url-to-hash';
+import { readSavedData, saveData } from '@/utils/crud-local/connect';
 import { JSDOM } from "jsdom";
+
+// config
+import siteConfig from '@/config/site-config';
+
+// types
+import { LinkPreviewProps } from '@/types/ui/link-preview';
+import getPlatformName from '@/utils/get-social-name';
 
 
 async function fetchLinkPreview(url: string): Promise<LinkPreviewProps> {
@@ -41,9 +49,10 @@ async function fetchLinkPreview(url: string): Promise<LinkPreviewProps> {
     return previewData;
 }
 
-async function getData(){
+async function getData() {
     let error = null;
     let previewData = null;
+    let primary = null;
     try {
         const localLinkCache = await readSavedData();
         const catched = siteConfig.connect.secondary.filter(url => createShortHash(url) in localLinkCache)
@@ -59,28 +68,39 @@ async function getData(){
             }
         }));
         await saveData(localLinkCache)
-        previewData = [...previewData, ...catched]
+        // for primary links
+        primary = siteConfig.connect.primary.map(item => {
+            const result = getPlatformName(item.url);
+            return {
+                ...(result === "invalid URL" ? {} : result),
+                pinned: item.pinned
+            }
+        });
+        previewData = [...previewData, ...catched,]
     } catch (err) {
         console.log(err)
         error = "Something went wrong";
     }
-    return { data: previewData, error };
+    return { data: previewData, error, primary };
 }
 
 const ConnectPage = async () => {
-    const { data, error } = await getData();
+    const { data, error, primary } = await getData();
 
     if (error) return <H1>{error}</H1>
 
     return (
-        <div className='sm:w-9/12 mx-auto h-fit'>
+        <div className='sm:w-10/12 mx-auto h-fit'>
             <H2 className='border-none mb-4'>Connect with &nbsp;
                 <i className=" underline">
                     rajni
                 </i>,
                 👋
             </H2>
-            <div className="sm:columns-2 gap-10">
+            <div className="grid sm:grid-cols-2 gap-10">
+                {primary?.map((item, index) => <Preview key={index} {...item} />)}
+            </div>
+            <div className="grid sm:grid-cols-3 gap-10 border-t mt-6 pt-6 dark:border-gray-800">
                 {data?.map((item, index) => <Preview key={index} {...item} />)}
             </div>
         </div>
