@@ -100,7 +100,7 @@ const ConnectPage = async () => {
             <div className="grid sm:grid-cols-2 gap-10">
                 {primary?.map((item, index) => <Preview key={index} {...item} />)}
             </div>
-            <div className="grid sm:grid-cols-3 gap-10 border-t mt-6 pt-6 dark:border-gray-800">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 border-t mt-6 pt-6 dark:border-gray-800">
                 {data?.map((item, index) => <Preview key={index} {...item} />)}
             </div>
         </div>
