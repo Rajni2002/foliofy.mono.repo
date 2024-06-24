@@ -1,5 +1,5 @@
 import { CachedLinkPreviewType } from "@/types/ui/link-preview";
-import fs, { mkdir, readFileSync } from "fs";
+import fs from "fs";
 import path from "path";
 
 const previewFilePath = path.join(process.cwd(), "data", "preview.json");

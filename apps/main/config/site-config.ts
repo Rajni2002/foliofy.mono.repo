@@ -8,10 +8,19 @@ const siteConfig = {
     primary: [
       {
         url: "https://twitter.com/rajni2k2",
-        pinned: [],
+        pinned: ["https://x.com/rajni2k2/status/1804596700373508178"],
       },
       {
         url: "https://github.com/Rajni2002",
+      },
+      {
+        url: "https://www.linkedin.com/in/rajnikant-dash-2k2/",
+        pinned: [
+          "https://www.linkedin.com/embed/feed/update/urn:li:activity:7202904268457086976/",
+          "https://www.linkedin.com/embed/feed/update/urn:li:activity:7125109721509822466/",
+          "https://www.linkedin.com/embed/feed/update/urn:li:activity:7205889151827681280/",
+          "https://www.linkedin.com/embed/feed/update/urn:li:activity:7206178619021230080/",
+        ],
       },
     ],
     secondary: [
@@ -21,7 +30,7 @@ const siteConfig = {
       "https://www.youtube.com/watch?v=73_1biulkYk",
       "https://rajnikantdash.notion.site/",
       "https://dev.to/ibelick/creating-bento-grid-layouts-with-css-tailwind-css-26mo",
-      "https://whoswho.mt/en/locally-developed-audit-automation-software-attracts-global-attention-with-12-16-million-valuation"
+      "https://whoswho.mt/en/locally-developed-audit-automation-software-attracts-global-attention-with-12-16-million-valuation",
     ],
   },
   creator: "Rajnikant dash",
