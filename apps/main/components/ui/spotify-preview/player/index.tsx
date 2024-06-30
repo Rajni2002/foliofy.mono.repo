@@ -89,7 +89,7 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
     }
   };
 
-  const togglePlayPause = (value?: boolean) => {
+  const togglePlayPause = () => {
     if (audioRef.current) {
       if (audioRef.current.paused) {
         audioRef.current.play();
