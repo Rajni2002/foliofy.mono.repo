@@ -47,12 +47,6 @@ export default function getPlatformName(
       url,
       platform: "pinterest",
     },
-    "spotify.com": {
-      title: "Spotify",
-      iconURL: socialIconPath("spotify.svg"),
-      url,
-      platform: "spotify",
-    },
     "instagram.com": {
       title: "Instagram",
       iconURL: socialIconPath("instagram.svg"),
@@ -64,13 +58,7 @@ export default function getPlatformName(
       iconURL: socialIconPath("youtube.svg"),
       url,
       platform: "youtube"
-    },
-    "github.com": {
-      title: "Github",
-      iconURL: socialIconPath("github.svg"),
-      url,
-      platform: "github"
-    },
+    }
   };
 
   try {
