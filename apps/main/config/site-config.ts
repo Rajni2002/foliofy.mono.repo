@@ -1,3 +1,4 @@
+
 const siteConfig = {
   name: "Rajnikant dash",
   url: "https://foliofy-mono-repo-docs.vercel.app/",
@@ -32,6 +33,9 @@ const siteConfig = {
       "https://dev.to/ibelick/creating-bento-grid-layouts-with-css-tailwind-css-26mo",
       "https://whoswho.mt/en/locally-developed-audit-automation-software-attracts-global-attention-with-12-16-million-valuation",
     ],
+    spotify: {
+      profileURL: "https://open.spotify.com/user/ttpgbfl98swfpv7q6lyn8eoby?si=9087465c51a2440c"
+    }
   },
   creator: "Rajnikant dash",
 };

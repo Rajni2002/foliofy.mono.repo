@@ -5,54 +5,24 @@ import { H1, H2 } from '@foliofy/ui/typography';
 // utils
 import createShortHash from '@/utils/url-to-hash';
 import { readSavedData, saveData } from '@/utils/crud-local/connect';
-import { JSDOM } from "jsdom";
 
 // config
 import siteConfig from '@/config/site-config';
 
 // types
-import { LinkPreviewProps } from '@/types/ui/link-preview';
 import getPlatformName from '@/utils/get-social-name';
+import SpotifyPreview from '@/components/ui/spotify-preview';
+import fetchLinkPreview from '@/utils/api-methods/fetch-link-preview';
+import { getTrack } from '@/utils/api-methods/spotify';
+import { TopTrackType } from '@/types/ui/spotify-preview';
+import { LinkPreviewProps } from '@/types/ui/link-preview';
 
-
-async function fetchLinkPreview(url: string): Promise<LinkPreviewProps> {
-    let previewData: LinkPreviewProps = {
-        iconURL: "",
-        title: "",
-        description: "",
-        coverURL: "",
-        url: "",
-    };
-    try {
-        const response = await fetch(url);
-        const res = await response.text();
-        const parser = new JSDOM(res);
-        const document = parser.window.document;
-
-        previewData.title = document.querySelector("title")?.textContent || "";
-        previewData.description = document.querySelector('meta[name="description"]')?.getAttribute("content") || "";
-        previewData.coverURL = document.querySelector('meta[property="og:image"]')?.getAttribute("content") || "";
-        previewData.url = url;
-
-        const iconLink = document.querySelector('link[rel="shortcut icon"]')?.getAttribute("href") ||
-            document.querySelector('link[rel="alternate icon"]')?.getAttribute("href") ||
-            document.querySelector('link[rel="icon"]')?.getAttribute("href");
-
-        previewData.iconURL = iconLink ? new URL(iconLink, url).href : `${url}/favicon.ico`;
-
-
-    } catch (error) {
-        console.error(error);
-        throw new Error("Something went wrong while fetching link preview");
-    }
-
-    return previewData;
-}
 
 async function getData() {
     let error = null;
     let previewData = null;
-    let primary = null;
+    let primary: LinkPreviewProps[] | null = null;
+    let spotify: TopTrackType | null = null;
     try {
         const localLinkCache = await readSavedData();
         const catched = siteConfig.connect.secondary.filter(url => createShortHash(url) in localLinkCache)
@@ -77,15 +47,18 @@ async function getData() {
             }
         });
         previewData = [...previewData, ...catched,]
+        if (process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET) {
+            spotify = await getTrack("6ZoCBDOB308GqUdt2AJrV2");
+        }
     } catch (err) {
         console.log(err)
         error = "Something went wrong";
     }
-    return { data: previewData, error, primary };
+    return { data: previewData, error, primary, spotify };
 }
 
 const ConnectPage = async () => {
-    const { data, error, primary } = await getData();
+    const { data, error, primary, spotify } = await getData();
 
     if (error) return <H1>{error}</H1>
 
@@ -99,6 +72,7 @@ const ConnectPage = async () => {
             </H2>
             <div className="grid sm:grid-cols-2 gap-10">
                 {primary?.map((item, index) => <Preview key={index} {...item} />)}
+                {spotify && <SpotifyPreview data={spotify} />}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 border-t mt-6 pt-6 dark:border-gray-800">
                 {data?.map((item, index) => <Preview key={index} {...item} />)}

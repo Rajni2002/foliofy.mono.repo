@@ -12,7 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 // icons
-import { Maximize2, Minimize2, MoveUpRight } from '@foliofy/ui/icons';
+import { Maximize2, Minimize2 } from '@foliofy/ui/icons';
 
 // utils
 import { mergeCN, truncateUrl } from '@foliofy/utils';
@@ -23,7 +23,7 @@ const Preview = (props: LinkPreviewProps) => {
         <div className='grid sm:grid-cols-3 gap-8'>
             {props.pinned.map((url: string, index) => <div key={index} className='dark:brightness-90 mt-3'>
                 <PlatformBasedSocialEmbed url={url}
-                    platformName={props.platform ?? "github"} height={400} />
+                    platformName={props.platform ?? "twitter"} height={400} />
             </div>)}
         </div>
         : <P>{props.description}</P>
@@ -33,25 +33,20 @@ const Preview = (props: LinkPreviewProps) => {
 
     return (
         <Card className={mergeCN('p-6 relative break-inside-avoid dark:border-gray-800 rounded-xl shadow-xl dark:shadow-gray-800', open ? "sm:col-span-2" : "")}>
-            {/* <div className='p-1 absolute top-3 right-3 rounded-full bg-inherit/70 backdrop-blur-sm dark:border-gray-600 hover:-rotate-12 transition-all cursor-pointer text-gray-400'>
-                <Link href={props.url} target='_blank'>
-                    <MoveUpRight size={20} />
-                </Link>
-            </div> */}
             <div className={mergeCN('flex gap-3', true ? "flex-col-reverse" : "flex-row")}>
                 <div className="w-full">
                     <div className='flex justify-between items-center mb-4'>
-                        {props.iconURL.length !== 0 && <Image unoptimized width={30} height={30} alt='favicons of urls' className='rounded-lg' src={props.iconURL} />}
+                        {props.iconURL?.length !== 0 && <Image unoptimized width={30} height={30} alt='favicons of urls' className='rounded-lg' src={props.iconURL ??""} />}
                         <div className='flex gap-3 items-center'>
                             <div onClick={handleOpen} className='p-1 rounded-full bg-inherit hover:scale-110 transition-all cursor-pointer text-gray-400'>
                                 {open ? <Minimize2 size={20} /> : <Maximize2 size={20} />}
                             </div>
                         </div>
                     </div>
-                    <H3 className='dark:text-gray-200'>{props.title.length >= 60 ? (open ? props.title : `${props.title.slice(0, 60)}...`) : props.title}</H3>
+                    <H3 className='dark:text-gray-200'>{(props.title?.length ?? 0) >= 60 ? (open ? props.title : `${props.title?.slice(0, 60)}...`) : props.title}</H3>
                     <Muted className='underline mt-2'>
-                        <Link href={props.url} target='_blank' className='hover:text-gray-300 break-words'>
-                            {truncateUrl(props.url)}
+                        <Link href={props.url ??""} target='_blank' className='hover:text-gray-300 break-words'>
+                            {truncateUrl(props.url ??"")}
                         </Link>
                     </Muted>
                 </div>

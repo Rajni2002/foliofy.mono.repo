@@ -2,7 +2,7 @@ import { PlatformSocialEmbeds, PrimarySocialMediaLinks } from '@/types/ui/link-p
 import { FacebookEmbed, InstagramEmbed, LinkedInEmbed, PinterestEmbed, XEmbed, YouTubeEmbed } from 'react-social-media-embed';
 
 
-const PlatformBasedSocialEmbed = ({ platformName, url, ...props }: { platformName: keyof PrimarySocialMediaLinks, url: string }) => {
+const PlatformBasedSocialEmbed = ({ platformName, url, height, ...props }: { platformName: keyof PrimarySocialMediaLinks, url: string, height: number }) => {
     const Embeds: PlatformSocialEmbeds = {
         twitter: XEmbed,
         instagram: InstagramEmbed,
