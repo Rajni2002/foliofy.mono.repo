@@ -12,9 +12,6 @@ const siteConfig = {
         pinned: ["https://x.com/rajni2k2/status/1804596700373508178"],
       },
       {
-        url: "https://github.com/Rajni2002",
-      },
-      {
         url: "https://www.linkedin.com/in/rajnikant-dash-2k2/",
         pinned: [
           "https://www.linkedin.com/embed/feed/update/urn:li:activity:7202904268457086976/",
