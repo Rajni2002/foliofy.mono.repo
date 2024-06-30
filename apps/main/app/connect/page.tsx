@@ -48,7 +48,7 @@ async function getData() {
         });
         previewData = [...previewData, ...catched,]
         if (process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET) {
-            spotify = await getTrack("6ZoCBDOB308GqUdt2AJrV2");
+            spotify = await getTrack("44ngiCPfS8FfdJOqN0eULl");
         }
     } catch (err) {
         console.log(err)

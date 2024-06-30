@@ -113,6 +113,10 @@
     "./slider": {
       "types": "./dist/slider/index.d.ts",
       "default": "./dist/slider/index.js"
+    },
+    "./toggle": {
+      "types": "./dist/toggle/index.d.ts",
+      "default": "./dist/toggle/index.js"
     }
   }
 }

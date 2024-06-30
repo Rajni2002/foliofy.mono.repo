@@ -1,9 +1,10 @@
-import { FormEvent, IframeHTMLAttributes, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // icons & components
 import { Play, Pause } from "@foliofy/ui/icons";
 import { Slider } from "@foliofy/ui/slider";
+import { Toggle } from "@foliofy/ui/toggle";
 import { H3, P, Small } from "@foliofy/ui/typography";
 
 //utils
@@ -12,16 +13,14 @@ import { getLyricsClientSide } from "@/utils/api-methods/spotify";
 
 // types
 import { LyricsType, TopTrackType } from "@/types/ui/spotify-preview";
+import { Label } from "@foliofy/ui/label";
 
 export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [lyrics, setLyrics] = useState<LyricsType[] | null>(null);
   const [load, setLoad] = useState<boolean>(false);
   const [duration, setDuration] = useState(0);
-
-  useEffect(() => {
-    console.log(lyrics && lyrics.length !== 0)
-  }, [lyrics])
+  const [fullMode, setFullMode] = useState<boolean>(!data.preview_url);
 
   const fetchLyrics = async (trackId: string) => {
     setLoad(true);
@@ -42,7 +41,6 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
     let localLyrics = JSON.parse(localStorage.getItem("lyrics") ?? "{}");
     if (data.id in localLyrics) {
       const res = localLyrics[data.id];
-      console.log(res);
       setLyrics(res.lyrics.lines);
     } else {
       fetchLyrics(data.id)
@@ -75,7 +73,7 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
   const manageCurrentTime = () => {
     setTimeStamp(currentTime + 1);
     // fetching the current line from the lyrics which is getting pointed
-    // and getting it's length for adding custom delay, on every line switch
+    // and getting it's length for adding custom delay, on every line Toggle
     const CURRENT_POINTED_LYRICS_STRING = lyrics?.[timeStamp]?.words ?? "";
     const CURRENT_POINTED_LYRICS_STRING_LENGTH =
       CURRENT_POINTED_LYRICS_STRING.length;
@@ -116,18 +114,14 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
   };
 
   const handleProgressChange = (value: number[]) => {
-    console.log(value);
     if (audioRef.current) {
       const newTime: number = (+value / 100) * duration;
-      console.log(newTime)
       audioRef.current.currentTime = newTime;
       setCurrentTime(newTime);
     }
   };
 
   const renderLyrics = ({ lyrics, songLength }: { lyrics?: string[], songLength?: number }) => {
-    let a: HTMLIFrameElement;
-
     let lines: string[] = [];
     if (!songLength || !lyrics) return lines;
     for (let count = 0; count < songLength; count++) {
@@ -138,9 +132,11 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
 
   return (
     <div className="spotify-lyrics-slider-component-container md:w-6/12 mt-4">
-      {/* <H1>
-        kinda spotify.
-      </H1> */}
+      {data.preview_url && data.preview_url.length !== 0 &&
+        <div className="flex items-center space-x-2">
+          <Toggle checked={fullMode} onCheckedChange={setFullMode} id="player-mode" />
+          <Label htmlFor="player-mode" className="bg-gray-600 py-1 px-2 rounded-full font-semibold text-xs">{fullMode ? "FULL" : "PREVIEW"}</Label>
+        </div>}
       <audio ref={audioRef} id={data.id}
         onLoadedMetadata={handleLoadedMetadata}
         onTimeUpdate={handleTimeUpdate}>
@@ -175,7 +171,7 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
             })}
           </motion.div>
         </AnimatePresence>}
-        {data.preview_url ? <>
+        {!fullMode ? <>
           {lyrics && lyrics.length !== 0 && <AnimatePresence>
             <motion.div className="slider-wrapper">
               <Slider max={100} min={0} step={1} value={[(currentTime / duration) * 100]} onValueChange={handleProgressChange} />
@@ -219,9 +215,7 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
             {`${isPlaying ? "you are vibing..." : "music paused"}`}
           </P>
         </> :
-          <iframe style={{
-            borderRadius: "20px"
-          }} src={`https://open.spotify.com/embed/track/${data.id}?utm_source=generator`} width="100%" height="152" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <iframe className="mt-5 rounded-xl" src={`https://open.spotify.com/embed/track/${data.id}?utm_source=generator`} width="100%" height="152" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         }
       </div>
     </div>
