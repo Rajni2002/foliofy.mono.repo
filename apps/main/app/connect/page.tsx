@@ -37,7 +37,8 @@ async function getData() {
                 throw error
             }
         }));
-        await saveData(localLinkCache)
+        if (notCatched.length)
+            await saveData(localLinkCache)
         // for primary links
         primary = siteConfig.connect.primary.map(item => {
             const result = getPlatformName(item.url);

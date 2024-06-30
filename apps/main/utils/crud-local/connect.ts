@@ -28,6 +28,7 @@ export async function readSavedData() {
 }
 
 export async function saveData(data: CachedLinkPreviewType) {
+  console.log("dnbe")
   try {
     const isExist = await canAccess(previewFilePath);
     if (!isExist) {
