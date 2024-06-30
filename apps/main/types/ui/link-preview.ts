@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import {
   FacebookEmbedProps,
   InstagramEmbedProps,
@@ -9,11 +8,11 @@ import {
 } from "react-social-media-embed";
 
 export type LinkPreviewProps = {
-  iconURL: string;
-  title: string;
-  description: string;
-  coverURL: string;
-  url: string;
+  iconURL?: string;
+  title?: string;
+  description?: string;
+  coverURL?: string;
+  url?: string;
   pinned?: string[];
   platform?: keyof PrimarySocialMediaLinks;
 };
@@ -25,10 +24,8 @@ export type PrimarySocialMediaLinks = {
   linkedin: string;
   facebook: string;
   pinterest: string;
-  spotify: string;
   instagram: string;
   youtube: string;
-  github: string;
 };
 
 interface otherEmbedProps {
