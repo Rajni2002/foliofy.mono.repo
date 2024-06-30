@@ -89,7 +89,7 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
     }
   };
 
-  const togglePlayPause = () => {
+  const togglePlayPause = (value?: boolean) => {
     if (audioRef.current) {
       if (audioRef.current.paused) {
         audioRef.current.play();
@@ -134,8 +134,14 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
     <div className="spotify-lyrics-slider-component-container md:w-6/12 mt-4">
       {data.preview_url && data.preview_url.length !== 0 &&
         <div className="flex items-center space-x-2">
-          <Toggle checked={fullMode} onCheckedChange={setFullMode} id="player-mode" />
-          <Label htmlFor="player-mode" className="bg-gray-600 py-1 px-2 rounded-full font-semibold text-xs">{fullMode ? "FULL" : "PREVIEW"}</Label>
+          <Toggle checked={fullMode} onCheckedChange={(value: boolean) => {
+            if (audioRef.current) {
+              audioRef.current.pause();
+              setIsPlaying(false);
+            }
+            setFullMode(value);
+          }} id="player-mode" />
+          <Label htmlFor="player-mode" className="bg-gray-600 py-1 px-2 rounded-full text-white font-semibold text-xs">{fullMode ? "EMBED" : "BLEND"}</Label>
         </div>}
       <audio ref={audioRef} id={data.id}
         onLoadedMetadata={handleLoadedMetadata}
