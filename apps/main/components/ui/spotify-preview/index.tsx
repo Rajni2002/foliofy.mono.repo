@@ -38,7 +38,7 @@ const SpotifyPreview = ({ data }: { data: TopTrackType }) => {
     return (
         <Card className={mergeCN('p-6 relative break-inside-avoid dark:border-gray-800 rounded-xl shadow-xl dark:shadow-gray-800 bg-[#d3fce3] dark:bg-green-300/10', open ? "sm:col-span-2" : "")}>
             <div className={mergeCN('flex gap-3 flex-row')}>
-                <div className={open ? "w-full" : "sm:w-6/12"}>
+                <div className={open ? "w-full" : "w-6/12"}>
                     <div className='flex justify-between items-center mb-4'>
                         <Image unoptimized width={30} height={30} alt='favicons of urls' className='rounded-lg' src="/icons/socials/spotify.svg" />
                         <div className='flex gap-3 items-center'>
@@ -47,12 +47,12 @@ const SpotifyPreview = ({ data }: { data: TopTrackType }) => {
                             </div>
                         </div>
                     </div>
-                    <H3 className='dark:text-gray-200 break-words'>{getUserId(siteConfig.connect.spotify.profileURL)}</H3>
-                    <Muted className='mt-2 break-words'>
-                        <Link href={siteConfig.connect.spotify.profileURL} target='_blank' className='hover:underline text-gray-500 dark:text-white break-words'>
-                            {truncateUrl(siteConfig.connect.spotify.profileURL)}
-                        </Link>
-                    </Muted>
+                    <Link href={siteConfig.connect.spotify.profileURL} target='_blank' className='hover:underline'>
+                        <H3 className='dark:text-gray-200 break-words text-lg sm:!text-2xl'>{getUserId(siteConfig.connect.spotify.profileURL)}</H3>
+                    </Link>
+                    {/* <Muted className='mt-2 break-words'>
+                        {truncateUrl(siteConfig.connect.spotify.profileURL)}
+                    </Muted> */}
                 </div>
                 {!open && <Image unoptimized width={data.images[1].width} height={data.images[1].height} className='rounded-xl aspect-square object-cover w-6/12' alt='Cover image of urls'
                     src={data.images[1].url} />}
