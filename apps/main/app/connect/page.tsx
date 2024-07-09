@@ -22,7 +22,7 @@ async function getData() {
     let error = null;
     let previewData = null;
     let primary: LinkPreviewProps[] | null = null;
-    let spotify: TopTrackType | null = null;
+    let spotify: TopTrackType[] | null = null;
     try {
         const localLinkCache = await readSavedData();
         const catched = siteConfig.connect.secondary.filter(url => createShortHash(url) in localLinkCache)
@@ -49,7 +49,9 @@ async function getData() {
         });
         previewData = [...previewData, ...catched,]
         if (process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET) {
-            spotify = await getTrack("44ngiCPfS8FfdJOqN0eULl");
+            // get the Top tracks 
+            spotify = await Promise.all(siteConfig.connect.spotify.topTracks.map(item => getTrack(item)));
+
         }
     } catch (err) {
         console.log(err)

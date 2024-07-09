@@ -36,7 +36,7 @@ const Preview = (props: LinkPreviewProps) => {
             <div className={mergeCN('flex gap-3', true ? "flex-col-reverse" : "flex-row")}>
                 <div className="w-full">
                     <div className='flex justify-between items-center mb-4'>
-                        {props.iconURL?.length !== 0 && <Image unoptimized width={30} height={30} alt='favicons of urls' className='rounded-lg' src={props.iconURL ??""} />}
+                        {props.iconURL?.length !== 0 && <Image unoptimized width={30} height={30} alt='favicons of urls' className='rounded-lg' src={props.iconURL ?? ""} />}
                         <div className='flex gap-3 items-center'>
                             <div onClick={handleOpen} className='p-1 rounded-full bg-inherit hover:scale-110 transition-all cursor-pointer text-gray-400'>
                                 {open ? <Minimize2 size={20} /> : <Maximize2 size={20} />}
@@ -45,8 +45,8 @@ const Preview = (props: LinkPreviewProps) => {
                     </div>
                     <H3 className='dark:text-gray-200'>{(props.title?.length ?? 0) >= 60 ? (open ? props.title : `${props.title?.slice(0, 60)}...`) : props.title}</H3>
                     <Muted className='underline mt-2'>
-                        <Link href={props.url ??""} target='_blank' className='hover:text-gray-300 break-words'>
-                            {truncateUrl(props.url ??"")}
+                        <Link href={props.url ?? ""} target='_blank' className='hover:text-gray-300 break-words'>
+                            {truncateUrl(props.url ?? "")}
                         </Link>
                     </Muted>
                 </div>

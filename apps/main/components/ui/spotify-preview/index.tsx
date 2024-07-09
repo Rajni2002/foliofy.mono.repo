@@ -15,6 +15,7 @@ import siteConfig from '@/config/site-config';
 import { H3, Muted } from '@foliofy/ui/typography';
 import Link from 'next/link';
 import Player from './player';
+import TopTracks from './top-tracks';
 
 
 const getUserId = (url: string) => {
@@ -32,9 +33,16 @@ const getUserId = (url: string) => {
     return userID
 }
 
-const SpotifyPreview = ({ data }: { data: TopTrackType }) => {
+const SpotifyPreview = ({ data }: { data: TopTrackType[] }) => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(prev => !prev);
+    const [active, setActive] = useState<number>(Math.floor(Math.random() * (data.length + 1)));
+
+    const selectTrack = (id: string)=>{
+        const idx = data.findIndex(item => item.id === id);
+        setActive(idx ?? 0);
+    }
+
     return (
         <Card className={mergeCN('p-6 relative break-inside-avoid dark:border-gray-800 rounded-xl shadow-xl dark:shadow-gray-800 bg-[#d3fce3] dark:bg-green-300/10', open ? "sm:col-span-2" : "")}>
             <div className={mergeCN('flex gap-3 flex-row')}>
@@ -50,16 +58,14 @@ const SpotifyPreview = ({ data }: { data: TopTrackType }) => {
                     <Link href={siteConfig.connect.spotify.profileURL} target='_blank' className='hover:underline'>
                         <H3 className='dark:text-gray-200 break-words text-lg sm:!text-2xl'>{getUserId(siteConfig.connect.spotify.profileURL)}</H3>
                     </Link>
-                    {/* <Muted className='mt-2 break-words'>
-                        {truncateUrl(siteConfig.connect.spotify.profileURL)}
-                    </Muted> */}
                 </div>
-                {!open && <Image unoptimized width={data.images[1].width} height={data.images[1].height} className='rounded-xl aspect-square object-cover w-6/12' alt='Cover image of urls'
-                    src={data.images[1].url} />}
+                {!open && <Image unoptimized width={data[active].images[1].width} height={data[active].images[1].height} className='rounded-xl aspect-square object-cover w-6/12' alt='Cover image of urls'
+                    src={data[active].images[1].url} />}
             </div>
             {open &&
-                <div className='border-t mt-4 dark:border-gray-800'>
-                    <Player data={data} />
+                <div className='border-t mt-4 dark:border-gray-800 flex flex-col sm:flex-row items-center gap-3'>
+                    <Player data={data[active]} />
+                    <TopTracks data={data} active={active} selectTrack={selectTrack}/>
                 </div>
             }
         </Card>

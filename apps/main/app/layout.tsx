@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { mergeCN } from "@foliofy/utils";
 import { ThemeTypeProvider } from "@foliofy/ui/theme-provider";
 import Navbar from "@/components/navbar";
+import { Toaster } from "@foliofy/ui/toaster";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -85,6 +86,7 @@ export default function RootLayout({
           <ThemeTypeProvider>
             <Navbar />
             {children}
+            <Toaster />
           </ThemeTypeProvider>
         </ThemeProvider>
       </body>
