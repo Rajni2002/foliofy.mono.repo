@@ -1,5 +1,5 @@
 import apiConfig from "@/config/api-config";
-import { FetchOptions, TopTrackType } from "@/types/ui/spotify-preview";
+import { FetchOptions, TopArtistType, TopTrackType } from "@/types/ui/spotify-preview";
 
 // Function to fetch the access token
 async function fetchAccessToken(): Promise<string> {
@@ -63,8 +63,26 @@ export const getTrack = async (id: string): Promise<TopTrackType> => {
         ...item,
         url: item.external_urls.spotify,
       })),
-    };
+    };    
     return track;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getArtist = async (id: string): Promise<TopArtistType> => {
+  try {
+    const res = await fetchWithAuth(apiConfig.endpoints.spotify.get_artist(id));
+    const data = await res.json();
+    const artist: TopArtistType = {
+      name: data.name,
+      id: data.id,
+      url: data.external_urls.spotify,
+      images: data.images,
+      genres: data.genres,
+      followers: data.followers.total
+    };
+    return artist;
   } catch (error) {
     throw error;
   }
@@ -126,13 +144,3 @@ export const getLyricsClientSide = async (trackId: string): Promise<any> => {
     throw error;
   }
 };
-
-// // Example usage
-// (async () => {
-//   try {
-//     const trackId = "2PIvq1pGrUjY007X5y1UpM"; // Example track ID
-//     const lyrics = await getLyrics(trackId);
-//   } catch (error) {
-//     console.error('Error fetching lyrics:', error);
-//   }
-// })();

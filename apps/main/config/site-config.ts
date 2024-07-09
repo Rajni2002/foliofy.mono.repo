@@ -1,4 +1,3 @@
-
 const siteConfig = {
   name: "Rajnikant dash",
   url: "https://foliofy-mono-repo-docs.vercel.app/",
@@ -31,8 +30,24 @@ const siteConfig = {
       "https://whoswho.mt/en/locally-developed-audit-automation-software-attracts-global-attention-with-12-16-million-valuation",
     ],
     spotify: {
-      profileURL: "https://open.spotify.com/user/ttpgbfl98swfpv7q6lyn8eoby?si=9087465c51a2440c"
-    }
+      profileURL:
+        "https://open.spotify.com/user/ttpgbfl98swfpv7q6lyn8eoby?si=9087465c51a2440c",
+      topTracks: [
+        "2MvCNH9ua0CeOgUQfZf56z",
+        "44ngiCPfS8FfdJOqN0eULl",
+        "37BZB0z9T8Xu7U3e65qxFy",
+        "7oDd86yk8itslrA9HRP2ki",
+        "7tp4iYvcZksGp1u7feUrrO",
+      ],
+      topArtists: [
+        "1Xyo4u8uXC1ZmMpatF05PJ",
+        "6dJeKm76NjfXBNTpHmOhfO",
+        "06HL4z0CvFAxyc27GXpf02",
+        "5ZsFI1h6hIdQRw2ti0hz81",
+        "4YRxDV8wJFPHPTeXepOstw"
+      ]
+    },
+    github: "Rajni2002"
   },
   creator: "Rajnikant dash",
 };

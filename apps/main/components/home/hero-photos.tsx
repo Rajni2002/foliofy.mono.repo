@@ -2,7 +2,6 @@ import { HeroPhotosType } from "@/types/home";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@foliofy/ui/carousel";
 import Image from "next/image";
 
-
 const HeroPhotos = ({ images = [] }: { images?: HeroPhotosType }) => (
     images.length !== 0 && <Carousel
         opts={{

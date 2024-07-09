@@ -96,3 +96,19 @@
 .star-field .layer:nth-child(3) {
   animation: sf-fly-by-3 10s linear infinite;
 }
+.color-empty {
+  fill: #ebedf0;
+}
+.color-scale-1 {
+  fill: #c6e48b;
+}
+.color-scale-2 {
+  fill: #7bc96f;
+}
+.color-scale-3 {
+  fill: #239a3b;
+}
+.color-scale-4 {
+  fill: #196127;
+}
+

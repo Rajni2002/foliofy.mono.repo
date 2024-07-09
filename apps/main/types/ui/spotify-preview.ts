@@ -27,6 +27,24 @@ export type TopTrackType = {
   }[];
 };
 
+export type TopArtistType = {
+  genres: string[];
+  id: string;
+  images: {
+    height: number;
+    width: number;
+    url: string;
+  }[];
+  name: string;
+  url: string;
+  followers: number;
+};
+
+export type CombinedSpotifyData = {
+  tracks: TopTrackType[] | null;
+  artists: TopArtistType[] | null;
+}
+
 export type LyricsType = {
   startTimeMs: string;
   words: string;

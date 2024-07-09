@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import "@foliofy/ui/index.css"
@@ -9,6 +10,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { mergeCN } from "@foliofy/utils";
 import { ThemeTypeProvider } from "@foliofy/ui/theme-provider";
 import Navbar from "@/components/navbar";
+import { Toaster } from "@foliofy/ui/toaster";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -70,7 +72,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.JSX.Element;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -85,6 +87,7 @@ export default function RootLayout({
           <ThemeTypeProvider>
             <Navbar />
             {children}
+            <Toaster />
           </ThemeTypeProvider>
         </ThemeProvider>
       </body>

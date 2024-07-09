@@ -14,6 +14,7 @@ import { getLyricsClientSide } from "@/utils/api-methods/spotify";
 // types
 import { LyricsType, TopTrackType } from "@/types/ui/spotify-preview";
 import { Label } from "@foliofy/ui/label";
+import IframePlayer from "./iframe";
 
 export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -69,6 +70,16 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
       }, 100 * lyricDelay);
     }
   }, [timeStamp, isPlaying]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.pause();
+      audio.load();
+      setIsPlaying(false);
+      setFullMode(!data.preview_url);
+    }
+  }, [data])
 
   const manageCurrentTime = () => {
     setTimeStamp(currentTime + 1);
@@ -131,7 +142,7 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
   };
 
   return (
-    <div className="spotify-lyrics-slider-component-container md:w-6/12 mt-4">
+    <div className="w-full mt-4 flex flex-col justify-center">
       {data.preview_url && data.preview_url.length !== 0 &&
         <div className="flex items-center space-x-2">
           <Toggle checked={fullMode} onCheckedChange={(value: boolean) => {
@@ -221,8 +232,7 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
             {`${isPlaying ? "you are vibing..." : "music paused"}`}
           </P>
         </> :
-          <iframe className="mt-5 rounded-xl" src={`https://open.spotify.com/embed/track/${data.id}?utm_source=generator`} width="100%" height="152" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        }
+          <IframePlayer id={data.id} />}
       </div>
     </div>
   );
