@@ -39,6 +39,13 @@ const siteConfig = {
         "7oDd86yk8itslrA9HRP2ki",
         "7tp4iYvcZksGp1u7feUrrO",
       ],
+      topArtists: [
+        "1Xyo4u8uXC1ZmMpatF05PJ",
+        "6dJeKm76NjfXBNTpHmOhfO",
+        "06HL4z0CvFAxyc27GXpf02",
+        "5ZsFI1h6hIdQRw2ti0hz81",
+        "4YRxDV8wJFPHPTeXepOstw"
+      ]
     },
   },
   creator: "Rajnikant dash",

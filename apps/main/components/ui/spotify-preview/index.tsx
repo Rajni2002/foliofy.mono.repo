@@ -2,20 +2,21 @@
 import { useState } from 'react';
 
 // types
-import { TopTrackType } from '@/types/ui/spotify-preview';
 import { Card } from '@foliofy/ui/card';
 import Image from 'next/image';
 
 //utils
-import { mergeCN, truncateUrl } from '@foliofy/utils';
+import { mergeCN } from '@foliofy/utils';
 import { Maximize2, Minimize2 } from '@foliofy/ui/icons';
 
 // config
 import siteConfig from '@/config/site-config';
-import { H3, Muted } from '@foliofy/ui/typography';
+import { H3 } from '@foliofy/ui/typography';
 import Link from 'next/link';
 import Player from './player';
 import TopTracks from './top-tracks';
+import { CombinedSpotifyData } from '@/types/ui/spotify-preview';
+import TopArtists from './top-artists';
 
 
 const getUserId = (url: string) => {
@@ -33,13 +34,15 @@ const getUserId = (url: string) => {
     return userID
 }
 
-const SpotifyPreview = ({ data }: { data: TopTrackType[] }) => {
+const SpotifyPreview = ({ tracks, artists }: CombinedSpotifyData) => {
+    if (!tracks) return <></>;
+    if (!artists) return <></>;
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(prev => !prev);
-    const [active, setActive] = useState<number>(Math.floor(Math.random() * (data.length + 1)));
+    const [active, setActive] = useState<number>(Math.floor(Math.random() * ((tracks.length) + 1)));
 
-    const selectTrack = (id: string)=>{
-        const idx = data.findIndex(item => item.id === id);
+    const selectTrack = (id: string) => {
+        const idx = tracks.findIndex(item => item.id === id);
         setActive(idx ?? 0);
     }
 
@@ -59,13 +62,16 @@ const SpotifyPreview = ({ data }: { data: TopTrackType[] }) => {
                         <H3 className='dark:text-gray-200 break-words text-lg sm:!text-2xl'>{getUserId(siteConfig.connect.spotify.profileURL)}</H3>
                     </Link>
                 </div>
-                {!open && <Image unoptimized width={data[active].images[1].width} height={data[active].images[1].height} className='rounded-xl aspect-square object-cover w-6/12' alt='Cover image of urls'
-                    src={data[active].images[1].url} />}
+                {!open && <Image unoptimized width={tracks[active].images[1].width} height={tracks[active].images[1].height} className='rounded-xl aspect-square object-cover w-6/12' alt='Cover image of urls'
+                    src={tracks[active].images[1].url} />}
             </div>
             {open &&
-                <div className='border-t mt-4 dark:border-gray-800 flex flex-col sm:flex-row items-center gap-3'>
-                    <Player data={data[active]} />
-                    <TopTracks data={data} active={active} selectTrack={selectTrack}/>
+                <div className='border-t mt-4 dark:border-gray-800'>
+                    <div className='grid sm:grid-cols-2 gap-4'>
+                        <Player data={tracks[active]} />
+                        <TopTracks data={tracks} active={active} selectTrack={selectTrack} />
+                    </div>
+                    <TopArtists data={artists}/>
                 </div>
             }
         </Card>

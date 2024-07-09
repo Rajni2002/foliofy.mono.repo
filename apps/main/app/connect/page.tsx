@@ -13,8 +13,8 @@ import siteConfig from '@/config/site-config';
 import getPlatformName from '@/utils/get-social-name';
 import SpotifyPreview from '@/components/ui/spotify-preview';
 import fetchLinkPreview from '@/utils/api-methods/fetch-link-preview';
-import { getTrack } from '@/utils/api-methods/spotify';
-import { TopTrackType } from '@/types/ui/spotify-preview';
+import { getArtist, getTrack } from '@/utils/api-methods/spotify';
+import { CombinedSpotifyData } from '@/types/ui/spotify-preview';
 import { LinkPreviewProps } from '@/types/ui/link-preview';
 
 
@@ -22,7 +22,7 @@ async function getData() {
     let error = null;
     let previewData = null;
     let primary: LinkPreviewProps[] | null = null;
-    let spotify: TopTrackType[] | null = null;
+    let spotify: CombinedSpotifyData = { tracks: null, artists: null };
     try {
         const localLinkCache = await readSavedData();
         const catched = siteConfig.connect.secondary.filter(url => createShortHash(url) in localLinkCache)
@@ -49,9 +49,13 @@ async function getData() {
         });
         previewData = [...previewData, ...catched,]
         if (process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET) {
-            // get the Top tracks 
-            spotify = await Promise.all(siteConfig.connect.spotify.topTracks.map(item => getTrack(item)));
+            // get the Top tracks if exists
+            if (siteConfig.connect.spotify.topTracks)
+                spotify.tracks = await Promise.all(siteConfig.connect.spotify.topTracks.map(item => getTrack(item)));
 
+            // get the top Artists if exists
+            if (siteConfig.connect.spotify.topArtists)
+                spotify.artists = await Promise.all(siteConfig.connect.spotify.topArtists.map(item => getArtist(item)))
         }
     } catch (err) {
         console.log(err)
@@ -75,7 +79,7 @@ const ConnectPage = async () => {
             </H2>
             <div className="grid sm:grid-cols-2 gap-10">
                 {primary?.map((item, index) => <Preview key={index} {...item} />)}
-                {spotify && <SpotifyPreview data={spotify} />}
+                {spotify && <SpotifyPreview tracks={spotify.tracks} artists={spotify.artists} />}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 border-t mt-6 pt-6 dark:border-gray-800">
                 {data?.map((item, index) => <Preview key={index} {...item} />)}

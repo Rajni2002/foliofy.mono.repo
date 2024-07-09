@@ -9,7 +9,8 @@ const apiConfig = {
         "https://open.spotify.com/get_access_token",
       root: SPOTIFY_ROOT,
       get_lyric: (trackId: string) => `${LYRIC_ENDPOINT}/track/${trackId}?format=json&vocalRemoval=true`,
-      get_track: (id: string) => `${SPOTIFY_ROOT}/tracks/${id}?market=ES`,
+      get_track: (id: string) => `${SPOTIFY_ROOT}/tracks/${id}`,
+      get_artist: (id: string) => `${SPOTIFY_ROOT}/artists/${id}`,
       self_lyrics_access_token: "/api/get-lyrics-token"
     },
   },

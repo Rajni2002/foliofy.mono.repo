@@ -18,7 +18,7 @@ const TrackCard = ({ data, selectTrack }: { data: TopTrackType, selectTrack: (id
     </div>
 
 const TopTracks = ({ data, active, selectTrack }: { data: TopTrackType[], active: number, selectTrack: (id: string) => void }) => (
-    <div className='md:w-6/12'>
+    <div className='w-full'>
         <H3>Top Tracks</H3>
         {data.filter((_, index) => active !== index).map(item => <TrackCard selectTrack={selectTrack} key={item.id} data={item} />)}
     </div>

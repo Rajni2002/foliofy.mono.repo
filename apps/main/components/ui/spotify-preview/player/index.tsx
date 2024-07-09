@@ -142,7 +142,7 @@ export default function SpotifyLyricsSlider({ data }: { data: TopTrackType }) {
   };
 
   return (
-    <div className="sm:w-6/12 mt-4">
+    <div className="w-full mt-4 flex flex-col justify-center">
       {data.preview_url && data.preview_url.length !== 0 &&
         <div className="flex items-center space-x-2">
           <Toggle checked={fullMode} onCheckedChange={(value: boolean) => {
