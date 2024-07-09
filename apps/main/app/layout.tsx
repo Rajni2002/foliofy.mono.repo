@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import "@foliofy/ui/index.css"
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.JSX.Element;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>

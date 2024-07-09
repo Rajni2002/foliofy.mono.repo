@@ -12,7 +12,6 @@
     "@foliofy/ui": "*",
     "@foliofy/utils": "*",
     "@types/jsdom": "^21.1.7",
-    "cal-heatmap": "^4.2.4",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.2.12",
     "jsdom": "^24.1.0",
@@ -24,7 +23,6 @@
     "react-social-media-embed": "^2.5.13"
   },
   "devDependencies": {
-    "@types/cal-heatmap": "^3.5.39",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-calendar-heatmap": "^1.6.7",
