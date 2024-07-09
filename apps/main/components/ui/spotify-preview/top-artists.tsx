@@ -1,12 +1,10 @@
 import { TopArtistType } from '@/types/ui/spotify-preview';
 import { Card } from '@foliofy/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@foliofy/ui/carousel';
-import { H3, H4, Small } from '@foliofy/ui/typography';
+import { H3, Small } from '@foliofy/ui/typography';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-
-
 
 const TopArtists = ({ data }: { data: TopArtistType[] }) => {
     return (

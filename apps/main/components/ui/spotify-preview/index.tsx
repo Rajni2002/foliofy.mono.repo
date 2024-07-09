@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // types
 import { Card } from '@foliofy/ui/card';
@@ -33,6 +33,12 @@ const getUserId = (url: string) => {
 
     return userID
 }
+/**
+ * 
+
+
+ * @returns 
+ */
 
 const SpotifyPreview = ({ tracks, artists }: CombinedSpotifyData) => {
     if (!tracks) return <></>;
@@ -46,8 +52,23 @@ const SpotifyPreview = ({ tracks, artists }: CombinedSpotifyData) => {
         setActive(idx ?? 0);
     }
 
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            // Check if the URL contains the fragment #spotify-preview
+            if (window.location.hash === '#spotify-preview') {
+                setOpen(true);
+                // Get the element with id spotify-preview
+                const element = document.getElementById('spotify-preview');
+                if (element) {
+                    // Scroll to the element
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+    }, []);
+
     return (
-        <Card className={mergeCN('p-6 relative break-inside-avoid dark:border-gray-800 rounded-xl shadow-xl dark:shadow-gray-800 bg-[#d3fce3] dark:bg-green-300/10', open ? "sm:col-span-2" : "")}>
+        <Card id='spotify-preview' className={mergeCN('p-6 relative break-inside-avoid dark:border-gray-800 rounded-xl shadow-xl dark:shadow-gray-800 bg-[#d3fce3] dark:bg-green-300/10', open ? "sm:col-span-2" : "")}>
             <div className={mergeCN('flex gap-3 flex-row')}>
                 <div className={open ? "w-full" : "w-6/12"}>
                     <div className='flex justify-between items-center mb-4'>
@@ -71,7 +92,7 @@ const SpotifyPreview = ({ tracks, artists }: CombinedSpotifyData) => {
                         <Player data={tracks[active]} />
                         <TopTracks data={tracks} active={active} selectTrack={selectTrack} />
                     </div>
-                    <TopArtists data={artists}/>
+                    <TopArtists data={artists} />
                 </div>
             }
         </Card>
