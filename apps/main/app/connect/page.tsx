@@ -16,6 +16,9 @@ import fetchLinkPreview from '@/utils/api-methods/fetch-link-preview';
 import { getArtist, getTrack } from '@/utils/api-methods/spotify';
 import { CombinedSpotifyData } from '@/types/ui/spotify-preview';
 import { LinkPreviewProps } from '@/types/ui/link-preview';
+import { getGithubDataHeatmap, getUserInfo } from '@/utils/api-methods/github';
+import GithubPreview from '@/components/ui/github-preview';
+import { GitHubtype } from '@/types/ui/github';
 
 
 async function getData() {
@@ -23,6 +26,10 @@ async function getData() {
     let previewData = null;
     let primary: LinkPreviewProps[] | null = null;
     let spotify: CombinedSpotifyData = { tracks: null, artists: null };
+    let github: GitHubtype = {
+        heatData: null,
+        info: null
+    }
     try {
         const localLinkCache = await readSavedData();
         const catched = siteConfig.connect.secondary.filter(url => createShortHash(url) in localLinkCache)
@@ -48,6 +55,8 @@ async function getData() {
             }
         });
         previewData = [...previewData, ...catched,]
+
+        // if spotify key exist
         if (process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET) {
             // get the Top tracks if exists
             if (siteConfig.connect.spotify.topTracks)
@@ -57,15 +66,21 @@ async function getData() {
             if (siteConfig.connect.spotify.topArtists)
                 spotify.artists = await Promise.all(siteConfig.connect.spotify.topArtists.map(item => getArtist(item)))
         }
+
+        // if github key exist
+        if (process.env.GIT_KEY) {
+            github.heatData = await getGithubDataHeatmap(siteConfig.connect.github);
+            github.info = await getUserInfo(siteConfig.connect.github);
+        }
     } catch (err) {
         console.log(err)
         error = "Something went wrong";
     }
-    return { data: previewData, error, primary, spotify };
+    return { data: previewData, error, primary, spotify, github };
 }
 
 const ConnectPage = async () => {
-    const { data, error, primary, spotify } = await getData();
+    const { data, error, primary, spotify, github } = await getData();
 
     if (error) return <H1>{error}</H1>
 
@@ -78,6 +93,7 @@ const ConnectPage = async () => {
                 👋
             </H2>
             <div className="grid sm:grid-cols-2 gap-10">
+                {github && <GithubPreview data={github} />}
                 {primary?.map((item, index) => <Preview key={index} {...item} />)}
                 {spotify && <SpotifyPreview tracks={spotify.tracks} artists={spotify.artists} />}
             </div>

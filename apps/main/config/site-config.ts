@@ -47,6 +47,7 @@ const siteConfig = {
         "4YRxDV8wJFPHPTeXepOstw"
       ]
     },
+    github: "Rajni2002"
   },
   creator: "Rajnikant dash",
 };
