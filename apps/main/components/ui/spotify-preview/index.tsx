@@ -33,12 +33,6 @@ const getUserId = (url: string) => {
 
     return userID
 }
-/**
- * 
-
-
- * @returns 
- */
 
 const SpotifyPreview = ({ tracks, artists }: CombinedSpotifyData) => {
     if (!tracks) return <></>;

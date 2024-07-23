@@ -19,24 +19,25 @@ const TopArtists = ({ data }: { data: TopArtistType[] }) => {
             <CarouselContent className='items-center'>
                 {data.map((item) =>
                     <CarouselItem key={item.id} className="md:!basis-1/2 lg:!basis-1/3">
-                        <Link target='__blank' href={item.url}>
-                            <Card className='border-none rounded-xl overflow-hidden cursor-pointer relative group'>
-                                <Image unoptimized src={item.images[1].url}
-                                    alt={item.name}
-                                    className='object-cover brightness-75' width={item.images[1].width}
-                                    height={item.images[1].height} />
-                                <div className='absolute z-10 bottom-2 left-2 text-white'>
+
+                        <Card className='border-none rounded-xl overflow-hidden cursor-pointer relative group'>
+                            <Image unoptimized src={item.images[1].url}
+                                alt={item.name}
+                                className='object-cover brightness-75' width={item.images[1].width}
+                                height={item.images[1].height} />
+                            <div className='absolute z-10 bottom-2 left-2 text-white'>
+                                <Link target='__blank' href={item.url}>
                                     <H3 className='font-bold'>{item.name}</H3>
-                                    <div className='hidden group-hover:block'>
-                                        <Small>{item.followers.toLocaleString()} Followers</Small>
-                                        <br />
-                                        <Small className='capitalize mx-1'>
-                                            {item.genres.reduce((prev, curr, index) => prev + (index === 0 ? "" : ",") + ` ${curr}`, "")}
-                                        </Small>
-                                    </div>
+                                </Link>
+                                <div className='hidden group-hover:block'>
+                                    <Small>{item.followers.toLocaleString()} Followers</Small>
+                                    <br />
+                                    <Small className='capitalize mx-1'>
+                                        {item.genres.reduce((prev, curr, index) => prev + (index === 0 ? "" : ",") + ` ${curr}`, "")}
+                                    </Small>
                                 </div>
-                            </Card>
-                        </Link>
+                            </div>
+                        </Card>
                     </CarouselItem>)}
             </CarouselContent>
             <div className="hidden sm:block">
