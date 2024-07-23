@@ -33,7 +33,7 @@ const siteConfig = {
       profileURL:
         "https://open.spotify.com/user/ttpgbfl98swfpv7q6lyn8eoby?si=9087465c51a2440c",
       topTracks: [
-        "2MvCNH9ua0CeOgUQfZf56z",
+        "6wFwJpXsdvOrPzNwg8HfDj",
         "44ngiCPfS8FfdJOqN0eULl",
         "37BZB0z9T8Xu7U3e65qxFy",
         "7oDd86yk8itslrA9HRP2ki",

@@ -17,6 +17,7 @@ import Player from './player';
 import TopTracks from './top-tracks';
 import { CombinedSpotifyData } from '@/types/ui/spotify-preview';
 import TopArtists from './top-artists';
+import PreviewGrid from './preview-grid';
 
 
 const getUserId = (url: string) => {
@@ -33,12 +34,6 @@ const getUserId = (url: string) => {
 
     return userID
 }
-/**
- * 
-
-
- * @returns 
- */
 
 const SpotifyPreview = ({ tracks, artists }: CombinedSpotifyData) => {
     if (!tracks) return <></>;
@@ -83,8 +78,7 @@ const SpotifyPreview = ({ tracks, artists }: CombinedSpotifyData) => {
                         <H3 className='dark:text-gray-200 break-words text-lg sm:!text-2xl'>{getUserId(siteConfig.connect.spotify.profileURL)}</H3>
                     </Link>
                 </div>
-                {!open && <Image unoptimized width={tracks[active].images[1].width} height={tracks[active].images[1].height} className='rounded-xl aspect-square object-cover w-6/12' alt='Cover image of urls'
-                    src={tracks[active].images[1].url} />}
+                {!open && <PreviewGrid data={tracks} />}
             </div>
             {open &&
                 <div className='border-t mt-4 dark:border-gray-800'>
