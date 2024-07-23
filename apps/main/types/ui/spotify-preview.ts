@@ -10,6 +10,11 @@ export interface FetchOptions extends RequestInit {
   headers?: HeadersInit;
 }
 
+export type ImageType = {
+  height: number;
+  width: number;
+  url: string;
+};
 export type TopTrackType = {
   id: string;
   url: string;
@@ -20,11 +25,7 @@ export type TopTrackType = {
     id: string;
   }[];
   preview_url: string;
-  images: {
-    height: number;
-    width: number;
-    url: string;
-  }[];
+  images: ImageType[];
 };
 
 export type TopArtistType = {
@@ -43,7 +44,7 @@ export type TopArtistType = {
 export type CombinedSpotifyData = {
   tracks: TopTrackType[] | null;
   artists: TopArtistType[] | null;
-}
+};
 
 export type LyricsType = {
   startTimeMs: string;
