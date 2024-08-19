@@ -1,7 +1,16 @@
 {
   "name": "create-foliofy-app",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
+  "bin": {
+    "create-foliofy-app": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "link-cli": "yarn --global unlink create-foliofy-app && yarn --global link"
+  },
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.3.0",
